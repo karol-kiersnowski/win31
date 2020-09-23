@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div id="desktop" onmousemove="tryMoveElement(event)">
-		<div class="window" id="window-program-manager">
+		<div class="window" id="window-program-manager" onclick="clickOnWindow(this)">
 			<div class="title-bar">
 				<div class="options-button">&ndash;</div>
 				<div class="title"
@@ -19,8 +19,12 @@
 					onmouseup="setMouseUp(this)">
 					Program manager
 				</div>
-				<div class="minimize-button"></div>
-				<div class="maximize-button"></div>
+				<div class="minimize-button">
+					<div class="minimize-button-content">&#9662;</div>
+				</div>
+				<div class="maximize-button">
+					<div class="maximize-button-content">&#9652;</div>
+				</div>
 			</div>
 			<div class="menu-bar">
 				<div class="menu-option">File</div>
@@ -34,7 +38,7 @@
 				</div>
 			</div>
 		</div><!-- .WINDOW #WINDOW-PROGRAM-MANAGER -->
-		<div class="window" id="window-msdos">
+		<div class="window" id="window-msdos" onclick="clickOnWindow(this)">
 			<div class="title-bar">
 				<div class="options-button">&ndash;</div>
 				<div class="title"
@@ -42,8 +46,12 @@
 					onmouseup="setMouseUp(this)">
 					MS-DOS
 				</div>
-				<div class="minimize-button"></div>
-				<div class="maximize-button"></div>
+				<div class="minimize-button">
+					<div class="minimize-button-content">&#9662;</div>
+				</div>
+				<div class="maximize-button">
+					<div class="maximize-button-content">&#9652;</div>
+				</div>
 			</div>
 			<div class="window-content">
 				<iframe id="iframe-msdos" src="../webdos/index.html" title="WebDOS"></iframe>
