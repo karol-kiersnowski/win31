@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" href="style.css"/>
+	<script defer src="script.js"></script>
+	<title>Windows 3.1</title>
+	<meta name="description" content="Windows 3.1 - it's just a toy"/>
+	<meta name="keywords" content=""/>
+</head>
+<body>
+	<div id="desktop" onmousemove="tryMoveElement(event)">
+		<div class="window" id="window-program-manager">
+			<div class="title-bar">
+				<div class="options-button">&ndash;</div>
+				<div class="title"
+					onmousedown="setMouseDown(this, event)"
+					onmouseup="setMouseUp(this)">
+					Program manager
+				</div>
+				<div class="minimize-button"></div>
+				<div class="maximize-button"></div>
+			</div>
+			<div class="menu-bar">
+				<div class="menu-option">File</div>
+				<div class="menu-option">Options</div>
+				<div class="menu-option">Window</div>
+				<div class="menu-option">Help</div>
+			</div>
+			<div class="window-content">
+				<div class="icon" ondblclick="runMSDOS()">
+					<img src="ms-dos.png"/>
+				</div>
+			</div>
+		</div><!-- .WINDOW #WINDOW-PROGRAM-MANAGER -->
+		<div class="window" id="window-msdos">
+			<div class="title-bar">
+				<div class="options-button">&ndash;</div>
+				<div class="title"
+					onmousedown="setMouseDown(this, event)"
+					onmouseup="setMouseUp(this)">
+					MS-DOS
+				</div>
+				<div class="minimize-button"></div>
+				<div class="maximize-button"></div>
+			</div>
+			<div class="window-content">
+				<iframe id="iframe-msdos" src="../webdos/index.html" title="WebDOS"></iframe>>
+			</div>
+		</div><!-- .WINDOW #WINDOW-MSDOS -->
+	</div><!-- #DESKTOP -->
+</body>
+</html>
