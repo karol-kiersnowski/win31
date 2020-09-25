@@ -4,7 +4,8 @@ var desktop = document.getElementById("desktop");
 
 var isFullscreen = false;
 
-var windowExitWindows = document.getElementById("window-exit-windows"); 
+var windowExitWindows = document.getElementById("window-exit-windows");
+
 var programManager = {
     window: document.getElementById("window-program-manager"),
     isMouseDown: false,
@@ -15,14 +16,23 @@ var programManager = {
 var msdos = {
     window: document.getElementById("window-msdos"),
     isMouseDown: false,
-    mouseXInTitleBar:null,
-    mouseYInTitleBar:null
+    mouseXInTitleBar: null,
+    mouseYInTitleBar: null
 };
+
+var notepad = {
+    window: document.getElementById("window-notepad"),
+    isMouseDown: false,
+    mouseXInTitleBar: null,
+    mouseYInTitleBar: null
+};
+
+var apps = [ programManager, msdos, notepad ];
 
 function init() {
     setTimeout(function() {
         startScreen.style.display = "none";
-    }, 1000);
+    }, 1500);
 }
 
 function startWindowsSession() {
@@ -45,7 +55,7 @@ function showWindowExitWindows() {
 }
 
 function closeWindow(thisWindow) {
-    thisWindow.parentElement.parentElement.style.display = "none";
+    thisWindow.style.display = "none";
 }
 
 function switchScreenMode() {
@@ -60,58 +70,59 @@ function switchScreenMode() {
 }
 
 function clickOnWindow(thisWindow) {
-    if (thisWindow.getAttribute("id") == "window-program-manager") {
-        programManager.window.style.zIndex = "2";
-        msdos.window.style.zIndex = "1";
-    }
-    else if (thisWindow.getAttribute("id") == "window-msdos") {
-        programManager.window.style.zIndex = "1";
-        msdos.window.style.zIndex = "2";
+    for (var i=0; i<apps.length; i++) {
+        apps[i].window.style.zIndex = "1";
+        apps[i].window.children[0].style.backgroundColor = "#fff";
+        apps[i].window.children[0].style.color = "#000";
+        if (thisWindow.getAttribute("id") == apps[i].window.id) {
+            apps[i].window.style.zIndex = "2";
+            apps[i].window.children[0].style.backgroundColor = "#00a";
+            apps[i].window.children[0].style.color = "#fff";
+        }
     }
 }
 
 function setMouseDown(titleBar, mouse) {
-    if (titleBar.parentElement.parentElement.getAttribute("id") == "window-program-manager") {
-        programManager.isMouseDown = true;
-        programManager.mouseXInTitleBar = mouse.clientX - programManager.window.offsetLeft;
-        programManager.mouseYInTitleBar = mouse.clientY - programManager.window.offsetTop;
-    }
-    else if (titleBar.parentElement.parentElement.getAttribute("id") == "window-msdos") {
-        msdos.isMouseDown = true;
-        msdos.mouseXInTitleBar = mouse.clientX - msdos.window.offsetLeft;
-        msdos.mouseYInTitleBar = mouse.clientY - msdos.window.offsetTop;
+    for (var i=0; i<apps.length; i++) {
+        if (titleBar.parentElement.parentElement.getAttribute("id") == apps[i].window.id) {
+            apps[i].isMouseDown = true;
+            apps[i].mouseXInTitleBar = mouse.clientX - apps[i].window.offsetLeft;
+            apps[i].mouseYInTitleBar = mouse.clientY - apps[i].window.offsetTop;
+        }
     }
 }
 
 function setMouseUp(titleBar) {
-    if (titleBar.parentElement.parentElement.getAttribute("id") == "window-program-manager") {
-        programManager.isMouseDown = false;
-    }
-    else if (titleBar.parentElement.parentElement.getAttribute("id") == "window-msdos") {
-        msdos.isMouseDown = false;
-    }
+    for (var i=0; i<apps.length; i++)
+        if (titleBar.parentElement.parentElement.getAttribute("id") == apps[i].window.id)
+            apps[i].isMouseDown = false;
 }
 
 function tryMoveElement(mouse) {
-    if (programManager.isMouseDown) {
-        programManager.window.style.left = mouse.clientX - programManager.mouseXInTitleBar + "px";
-        programManager.window.style.top = mouse.clientY - programManager.mouseYInTitleBar + "px";
-    }
-    else if (msdos.isMouseDown) {
-        msdos.window.style.left = mouse.clientX - msdos.mouseXInTitleBar + "px";
-        msdos.window.style.top = mouse.clientY - msdos.mouseYInTitleBar + "px";
+    for (var i=0; i<apps.length; i++) {
+        if (apps[i].isMouseDown) {
+            apps[i].window.style.left = mouse.clientX - apps[i].mouseXInTitleBar + "px";
+            apps[i].window.style.top = mouse.clientY - apps[i].mouseYInTitleBar + "px";
+        }
     }
 }
 
 function selectIcon(thisIcon) {
-    thisIcon.style.backgroundColor = "#00f";
+    thisIcon.style.backgroundColor = "#eef";
 }
 
-function unselectIcon(iconId) {
-    document.getElementById(iconId).style.backgroundColor = "#fff";
+function unselectIcon() {
+    document.getElementById("icon-msdos").style.backgroundColor = "#fff";
+    document.getElementById("icon-notepad").style.backgroundColor = "#fff";
 }
 
-function runMSDOS() {
-    msdos.window.style.display = "block";
-    msdos.window.style.zIndex = "2";
+function showMenuList(menuOption) {
+    //menuOption.nextSibling.style.display = "block";
+    document.getElementsByClassName("menu-list")[0].style.display = "block";
+}
+
+function runApp(app) {
+    app.window.style.display = "block";
+    app.window.style.zIndex = "2";
+    clickOnWindow(app.window);
 }

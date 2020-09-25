@@ -26,11 +26,11 @@
 			<div class="window-content">
 				<p>This will end your Windows session</p>
 				<button id="button-ok" onclick="exitWindowsSession()">OK</button>
-				<button onclick="closeWindow(this)">Cancel</button>
+				<button onclick="closeWindow(parentElement.parentElement)">Cancel</button>
 			</div>
-		</div>
+		</div> <!-- .WINDOW #WINDOW-EXIT-WINDOWS -->
 
-		<div class="window-with-menu-bar" id="window-program-manager" onclick="clickOnWindow(this)">
+		<div class="window-with-menu-bar" id="window-program-manager" onmousedown="clickOnWindow(this)">
 			<div class="title-bar">
 				<div class="options-button" onclick="showWindowExitWindows()">&ndash;</div>
 				<div class="title"
@@ -52,17 +52,53 @@
 				<div class="menu-option">Help</div>
 			</div>
 			<div class="window-content">
-				<div class="icon" id="icon-msdos" onclick="selectIcon(this)" ondblclick="runMSDOS()">
+				<div class="icon-background" onclick="unselectIcon()">
+				</div>
+				<div class="icon" id="icon-msdos" onclick="selectIcon(this)" ondblclick="runApp(msdos)">
 					<img src="img/ms-dos.png"/>
 				</div>
-				<div class="icon" style="position: absolute; background-color: inherit; width: 80%; height: 90%;" onclick="unselectIcon('icon-msdos')">
+				<div class="icon" id="icon-notepad" onclick="selectIcon(this)" ondblclick="runApp(notepad)">
+					<img src="img/notepad.png"/>
 				</div>
 			</div>
 		</div><!-- .WINDOW #WINDOW-PROGRAM-MANAGER -->
 
-		<div class="window" id="window-msdos" onclick="clickOnWindow(this)">
+		<div class="window-with-menu-bar" id="window-notepad" onmousedown="clickOnWindow(this)">
 			<div class="title-bar">
-				<div class="options-button" onclick="closeWindow(this)">&ndash;</div>
+				<div class="options-button" onclick="closeWindow(parentElement.parentElement)">&ndash;</div>
+				<div class="title"
+					onmousedown="setMouseDown(this, event)"
+					onmouseup="setMouseUp(this)">
+					Notepad
+				</div>
+				<div class="minimize-button">
+					<div class="minimize-button-content">&#9662;</div>
+				</div>
+				<div class="maximize-button">
+					<div class="maximize-button-content">&#9652;</div>
+				</div>
+			</div>
+			<div class="menu-bar">
+				<div class="menu-option" onclick="showMenuList()">
+					File
+					<div class="menu-list">
+						<div class="menu-element">New</div>
+						<div class="menu-element">Save</div>
+						<div class="menu-element">Save as...</div>
+						<hr>
+						<div class="menu-element" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)">Exit</div>
+					</div>
+				</div>
+				<div class="menu-option">Help</div>
+			</div>
+			<div class="window-content">
+				<textarea></textarea>
+			</div>
+		</div><!-- .WINDOW #WINDOW-NOTEPAD -->
+
+		<div class="window" id="window-msdos" onmousedown="clickOnWindow(this)">
+			<div class="title-bar">
+				<div class="options-button" onclick="closeWindow(parentElement.parentElement)">&ndash;</div>
 				<div class="title"
 					onmousedown="setMouseDown(this, event)"
 					onmouseup="setMouseUp(this)">
