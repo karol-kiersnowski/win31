@@ -19,6 +19,12 @@ var msdos = {
     mouseYInTitleBar:null
 };
 
+function init() {
+    setTimeout(function() {
+        startScreen.style.display = "none";
+    }, 1000);
+}
+
 function startWindowsSession() {
     var audio = new Audio("audio/TADA.WAV");
     audio.play();
@@ -28,7 +34,9 @@ function startWindowsSession() {
 function exitWindowsSession() {
     var audio = new Audio("audio/CHIMES.WAV");
     audio.play();
-    setTimeout(function() { window.close(); }, 1000);
+    setTimeout(function() {
+        window.close();
+    },1000);
 }
 
 function showWindowExitWindows() {
