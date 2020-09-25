@@ -28,7 +28,7 @@ function startWindowsSession() {
 function exitWindowsSession() {
     var audio = new Audio("audio/CHIMES.WAV");
     audio.play();
-    window.close();
+    setTimeout(function() { window.close(); }, 1000);
 }
 
 function showWindowExitWindows() {
@@ -104,6 +104,6 @@ function unselectIcon(iconId) {
 }
 
 function runMSDOS() {
-    //desktop.appendChild
     msdos.window.style.display = "block";
+    msdos.window.style.zIndex = "2";
 }

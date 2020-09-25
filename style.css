@@ -47,17 +47,16 @@ body {
 
 #window-program-manager {
 	z-index: 1;
-	top: 100px;
-	left: 10px;
+	top: 50px;
+	left: 100px;
 	width: 400px;
 	height: 300px;
 }
 
 #window-msdos {
 	display: none;
-	z-index: 2;
-	top: 150px;
-	left: 250px;
+	top: 100px;
+	left: 200px;
 	width: 500px;
 	height: 400px;
 }
