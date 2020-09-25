@@ -1,16 +1,55 @@
+var startScreen = document.getElementById("start-screen");
+
 var desktop = document.getElementById("desktop");
+
+var isFullscreen = false;
+
+var windowExitWindows = document.getElementById("window-exit-windows"); 
 var programManager = {
     window: document.getElementById("window-program-manager"),
     isMouseDown: false,
     mouseXInTitleBar: null,
     mouseYInTitleBar: null
 };
+
 var msdos = {
     window: document.getElementById("window-msdos"),
     isMouseDown: false,
     mouseXInTitleBar:null,
     mouseYInTitleBar:null
 };
+
+function startWindowsSession() {
+    var audio = new Audio("audio/TADA.WAV");
+    audio.play();
+    startScreen.style.display = "none";
+}
+
+function exitWindowsSession() {
+    var audio = new Audio("audio/CHIMES.WAV");
+    audio.play();
+    window.close();
+}
+
+function showWindowExitWindows() {
+    windowExitWindows.style.display = "block";
+    document.getElementById("button-ok").focus();
+}
+
+function closeWindow(thisWindow) {
+    thisWindow.parentElement.parentElement.style.display = "none";
+}
+
+function switchScreenMode() {
+    if (!isFullscreen) {
+        document.documentElement.requestFullscreen();
+        isFullscreen = true;
+    }
+    else {
+        document.exitFullscreen();
+        isFullscreen = false;
+    }
+}
 
 function clickOnWindow(thisWindow) {
     if (thisWindow.getAttribute("id") == "window-program-manager") {
@@ -54,6 +93,14 @@ function tryMoveElement(mouse) {
         msdos.window.style.left = mouse.clientX - msdos.mouseXInTitleBar + "px";
         msdos.window.style.top = mouse.clientY - msdos.mouseYInTitleBar + "px";
     }
+}
+
+function selectIcon(thisIcon) {
+    thisIcon.style.backgroundColor = "#00f";
+}
+
+function unselectIcon(iconId) {
+    document.getElementById(iconId).style.backgroundColor = "#fff";
 }
 
 function runMSDOS() {

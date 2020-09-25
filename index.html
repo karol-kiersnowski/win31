@@ -10,10 +10,29 @@
 	<meta name="keywords" content=""/>
 </head>
 <body>
+	<div id="start-screen" onclick="startWindowsSession()">
+		<img src="img/logo.png"/>
+	</div>
+
+
+
 	<div id="desktop" onmousemove="tryMoveElement(event)">
-		<div class="window" id="window-program-manager" onclick="clickOnWindow(this)">
+
+		<div class="window" id="window-exit-windows">
 			<div class="title-bar">
 				<div class="options-button">&ndash;</div>
+				<div class="title">Exit Windows</div>
+			</div>
+			<div class="window-content">
+				<p>This will end your Windows session</p>
+				<button id="button-ok" onclick="exitWindowsSession()">OK</button>
+				<button onclick="closeWindow(this)">Cancel</button>
+			</div>
+		</div>
+
+		<div class="window-with-menu-bar" id="window-program-manager" onclick="clickOnWindow(this)">
+			<div class="title-bar">
+				<div class="options-button" onclick="showWindowExitWindows()">&ndash;</div>
 				<div class="title"
 					onmousedown="setMouseDown(this, event)"
 					onmouseup="setMouseUp(this)">
@@ -22,7 +41,7 @@
 				<div class="minimize-button">
 					<div class="minimize-button-content">&#9662;</div>
 				</div>
-				<div class="maximize-button">
+				<div class="maximize-button" onclick="switchScreenMode()">
 					<div class="maximize-button-content">&#9652;</div>
 				</div>
 			</div>
@@ -33,14 +52,17 @@
 				<div class="menu-option">Help</div>
 			</div>
 			<div class="window-content">
-				<div class="icon" ondblclick="runMSDOS()">
-					<img src="ms-dos.png"/>
+				<div class="icon" id="icon-msdos" onclick="selectIcon(this)" ondblclick="runMSDOS()">
+					<img src="img/ms-dos.png"/>
+				</div>
+				<div class="icon" style="position: absolute; background-color: inherit; width: 80%; height: 90%;" onclick="unselectIcon('icon-msdos')">
 				</div>
 			</div>
 		</div><!-- .WINDOW #WINDOW-PROGRAM-MANAGER -->
+
 		<div class="window" id="window-msdos" onclick="clickOnWindow(this)">
 			<div class="title-bar">
-				<div class="options-button">&ndash;</div>
+				<div class="options-button" onclick="closeWindow(this)">&ndash;</div>
 				<div class="title"
 					onmousedown="setMouseDown(this, event)"
 					onmouseup="setMouseUp(this)">
