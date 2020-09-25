@@ -1,5 +1,5 @@
 Windows 3.1 Simulator
-======
+=====================
 Windows 3.1 - simple simulator in your browser (it's just a toy)
 
 Projects site - [kargol92.github.io/webdos](https://kargol92.github.io/win31)
@@ -30,6 +30,6 @@ Author
 ------
 kargol92
 
-License
--------
+License for source code
+-----------------------
 [GNU General Public License v3.0](https://github.com/kargol92/cmd.sh/blob/master/LICENSE)
