@@ -1,9 +1,6 @@
-var startScreen = document.getElementById("start-screen");
-
-var desktop = document.getElementById("desktop");
-
 var isFullscreen = false;
-
+var startScreen = document.getElementById("start-screen");
+var desktop = document.getElementById("desktop");
 var windowExitWindows = document.getElementById("window-exit-windows");
 
 var programManager = {

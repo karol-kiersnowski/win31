@@ -2,7 +2,7 @@ Windows 3.1 Simulator
 =====================
 Windows 3.1 - simple simulator in your browser (it's just a toy)
 
-Projects site - [kargol92.github.io/webdos](https://kargol92.github.io/win31)
+Projects site - [kargol92.github.io/win31](https://kargol92.github.io/win31)
 
 Technologies
 ------------
