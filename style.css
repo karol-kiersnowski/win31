@@ -10,6 +10,9 @@ body {
 	font-family: Arial, sans-serif;
 }
 
+
+
+
 #start-screen {
 	position: absolute;
 	z-index: 5;
@@ -18,6 +21,10 @@ body {
 	height: 100%;
 	background-color: #000;
 	text-align: center;
+}
+
+#start-screen img {
+	height: 100%;
 }
 
 #desktop {
@@ -42,10 +49,17 @@ body {
 	z-index: 5;
 	top: calc(50% - 60px);
 	left: calc(50% - 150px);
-	width: 300px;
-	height: 120px;
+	//width: 300px;
+	//height: 120px;
+	background-color: #00a;
+	border: 3px solid #00a;
 	text-align: center;
 }
+
+	#window-exit-windows .title-bar,
+	#window-exit-windows .window-content {
+		border: 1px solid #fff;
+	}
 
 #window-program-manager {
 	z-index: 1;
@@ -208,7 +222,6 @@ body {
 }
 
 .window .window-content {
-	padding: 0;
 	height: calc(100% - 21px);
 }
 
@@ -218,8 +231,40 @@ body {
 	padding: 5px;
 }
 
+.icon-caption {
+
+}
+
 .icon-background {
 	position: absolute;
 	width: 100%;
 	height: 100%;
+}
+
+button {
+	margin: 10px 20px;
+	width: 75px;
+	background-color: #c3c7cb;
+	color: #000;
+	border-style: outset;
+	border-radius: 1px;
+	box-shadow: 0 0 0 1px #000;
+	font-size: 14px;
+}
+
+button:active {
+	border-style: inset;
+}
+
+
+p {
+	margin: 5px;
+}
+
+
+
+
+
+.clear {
+	clear: both;
 }

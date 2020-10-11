@@ -3,28 +3,37 @@
 <head>
 	<meta charset="utf-8"/>
 	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="icon" type="image/png" sizes="16x16" href="img/icon.png"/>
+	<link rel="icon" type="image/png" sizes="32x32" href="img/icon-32x32.png"/>
+	<link rel="icon" type="image/png" sizes="96x96" href="img/icon-96x96.png"/>
 	<link rel="stylesheet" href="style.css"/>
+	<script src="https://kit.fontawesome.com/63535dd4e0.js"></script>
 	<script defer src="script.js"></script>
+
 	<title>Windows 3.1</title>
 	<meta name="description" content="Windows 3.1 - it's just a toy"/>
 	<meta name="keywords" content=""/>
 </head>
 <body onload="init()">
+
 	<div id="start-screen" onclick="startWindowsSession()">
-		<img src="img/logo.png"/>
+		<img src="img/start-screen.png"/>
 	</div>
 
 
 
-	<div id="desktop" onmousemove="tryMoveElement(event)">
+	<div id="desktop" onmousemove="tryMoveElement(event)" onclick="uncheckStartMenu()">
 
 		<div class="window" id="window-exit-windows">
 			<div class="title-bar">
 				<div class="options-button">&ndash;</div>
 				<div class="title">Exit Windows</div>
 			</div>
-			<div class="window-content">
-				<p>This will end your Windows session</p>
+			<div class="window-content" style="padding: 10px;">
+				<p>
+					<i class="fas fa-info-circle" style="color: #00a; font-size: xx-large;vertical-align: sub;"></i> 
+					This will end your Windows session
+				</p>
 				<button id="button-ok" onclick="exitWindowsSession()">OK</button>
 				<button onclick="closeWindow(parentElement.parentElement)">Cancel</button>
 			</div>
@@ -116,5 +125,6 @@
 			</div>
 		</div><!-- .WINDOW #WINDOW-MSDOS -->
 	</div><!-- #DESKTOP -->
+
 </body>
 </html>

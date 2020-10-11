@@ -1,6 +1,7 @@
 var isFullscreen = false;
 var startScreen = document.getElementById("start-screen");
 var desktop = document.getElementById("desktop");
+var startMenu = document.getElementById("start-menu");
 var windowExitWindows = document.getElementById("window-exit-windows");
 
 var programManager = {
@@ -29,7 +30,7 @@ var apps = [ programManager, msdos, notepad ];
 function init() {
     setTimeout(function() {
         startScreen.style.display = "none";
-    }, 1500);
+    }, 2000);
 }
 
 function startWindowsSession() {
