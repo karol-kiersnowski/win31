@@ -9,13 +9,15 @@
 	cursor: default;
 }
 
+:focus {
+	outline: none;
+}
+
 body {
 	margin: 0;
 	overflow: hidden;
 	font-family: "Windows Regular", Arial, sans-serif;
 }
-
-
 
 
 #start-screen {
@@ -85,6 +87,17 @@ body {
 				2px 2px 0 #868a8e;
 		}
 
+		.options-button:focus {
+			background-color: #868a8e;
+		}
+
+			.options-button:focus .menu-list {
+				display: block;
+				margin: -2px 0;
+				text-align: left;
+				text-shadow: none;
+			}
+
 		.minimize-button {
 			position: absolute;
 			top: 0;
@@ -134,7 +147,7 @@ body {
 			/*background-color: green;*/
 		}
 
-		.menu-option:active {
+		.menu-option:focus {
 			background-color: #00a;
 			color: #fff;
 		}
@@ -146,10 +159,15 @@ body {
 				margin: 0 -5px;
 				border: 1px solid #000;
 				background-color: #fff;
+				color: #000;
+			}
+
+			.menu-option:focus .menu-list {
+				display: block;
 			}
 
 				.menu-element {
-					padding: 0 5px;
+					padding: 0 1em;
 				}
 
 				.menu-element:active {
@@ -179,14 +197,12 @@ body {
 			padding: 5px;
 		}
 
+		.icon:focus {
+			background-color: #eef;
+		}
+
 			.icon-caption {
 
-			}
-
-			.icon-background {
-				position: absolute;
-				width: 100%;
-				height: 100%;
 			}
 
 		button {

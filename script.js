@@ -105,20 +105,6 @@ function tryMoveElement(mouse) {
     }
 }
 
-function selectIcon(thisIcon) {
-    thisIcon.style.backgroundColor = "#eef";
-}
-
-function unselectIcon() {
-    document.getElementById("icon-msdos").style.backgroundColor = "#fff";
-    document.getElementById("icon-notepad").style.backgroundColor = "#fff";
-}
-
-function showMenuList(menuOption) {
-    //menuOption.nextSibling.style.display = "block";
-    document.getElementsByClassName("menu-list")[0].style.display = "block";
-}
-
 function runApp(app) {
     app.window.style.display = "block";
     app.window.style.zIndex = "2";

@@ -40,7 +40,20 @@
 
 		<div class="window-with-menu-bar" id="window-program-manager" onmousedown="clickOnWindow(this)">
 			<div class="title-bar">
-				<div class="options-button" onclick="showWindowExitWindows()">&ndash;</div>
+				<div class="options-button" tabindex="0">
+					&ndash;
+					<div class="menu-list">
+						<div class="menu-element disabled"><u>R</u>estore</div>
+						<div class="menu-element"><u>M</u>ove...</div>
+						<div class="menu-element"><u>S</u>ize</div>
+						<div class="menu-element">Mi<u>n</u>imize</div>
+						<div class="menu-element">Ma<u>x</u>imize</div>
+						<hr>
+						<div class="menu-element" onclick="showWindowExitWindows()"><u>C</u>lose</div>
+						<hr>
+						<div class="menu-element">S<u>w</u>itch to...</div>
+					</div>
+				</div>
 				<div class="title"
 					onmousedown="setMouseDown(this, event)"
 					onmouseup="setMouseUp(this)">
@@ -54,18 +67,30 @@
 				</div>
 			</div>
 			<div class="menu-bar">
-				<div class="menu-option">File</div>
-				<div class="menu-option">Options</div>
-				<div class="menu-option">Window</div>
-				<div class="menu-option">Help</div>
+				<div class="menu-option" tabindex="0">
+					<u>F</u>ile
+					<div class="menu-list">
+						<div class="menu-element"><u>N</u>ew</div>
+						<div class="menu-element"><u>O</u>pen...</div>
+						<div class="menu-element"><u>M</u>ove</div>
+						<div class="menu-element"><u>C</u>opy</div>
+						<div class="menu-element"><u>D</u>elete</div>
+						<div class="menu-element"><u>P</u>roperties...</div>
+						<hr>
+						<div class="menu-element"><u>R</u>un...</div>
+						<hr>
+						<div class="menu-element" onclick="showWindowExitWindows()">E<u>x</u>it Windows...</div>
+					</div>
+				</div>
+				<div class="menu-option" tabindex="0"><u>O</u>ptions</div>
+				<div class="menu-option" tabindex="0"><u>W</u>indow</div>
+				<div class="menu-option" tabindex="0"><u>H</u>elp</div>
 			</div>
 			<div class="window-content">
-				<div class="icon-background" onclick="unselectIcon()">
-				</div>
-				<div class="icon" id="icon-msdos" onclick="selectIcon(this)" ondblclick="runApp(msdos)">
+				<div class="icon" id="icon-msdos" tabindex="0" ondblclick="runApp(msdos)">
 					<img src="img/ms-dos.png"/>
 				</div>
-				<div class="icon" id="icon-notepad" onclick="selectIcon(this)" ondblclick="runApp(notepad)">
+				<div class="icon" id="icon-notepad" tabindex="0" ondblclick="runApp(notepad)">
 					<img src="img/notepad.png"/>
 				</div>
 			</div>
@@ -87,17 +112,20 @@
 				</div>
 			</div>
 			<div class="menu-bar">
-				<div class="menu-option" onclick="showMenuList()">
-					File
+				<div class="menu-option" tabindex="0">
+					<u>F</u>ile
 					<div class="menu-list">
-						<div class="menu-element">New</div>
-						<div class="menu-element">Save</div>
-						<div class="menu-element">Save as...</div>
+						<div class="menu-element"><u>N</u>ew</div>
+						<div class="menu-element"><u>O</u>pen</div>
+						<div class="menu-element"><u>S</u>ave</div>
+						<div class="menu-element">Save <u>A</u>s...</div>
 						<hr>
-						<div class="menu-element" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)">Exit</div>
+						<div class="menu-element" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)">E<u>x</u>it</div>
 					</div>
 				</div>
-				<div class="menu-option">Help</div>
+				<div class="menu-option" tabindex="0"><u>E</u>dit</div>
+				<div class="menu-option" tabindex="0"><u>S</u>earch</div>
+				<div class="menu-option" tabindex="0"><u>H</u>elp</div>
 			</div>
 			<div class="window-content">
 				<textarea></textarea>
