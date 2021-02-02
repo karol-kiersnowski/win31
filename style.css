@@ -247,7 +247,7 @@ body {
 
 #window-exit-windows {
 	display: none;
-	z-index: 5;
+	z-index: 999;
 	top: calc(50% - 60px);
 	left: calc(50% - 150px);
 	background-color: #00a;

@@ -69,11 +69,13 @@ function switchScreenMode() {
 
 function clickOnWindow(thisWindow) {
     for (var i=0; i<apps.length; i++) {
-        apps[i].window.style.zIndex = "1";
+        //apps[i].window.style.zIndex = "1";
         apps[i].window.children[0].style.backgroundColor = "#fff";
         apps[i].window.children[0].style.color = "#000";
         if (thisWindow.getAttribute("id") == apps[i].window.id) {
-            apps[i].window.style.zIndex = "2";
+            var maxZIndex = Math.max(apps[0].window.style.zIndex, apps[1].window.style.zIndex, apps[2].window.style.zIndex);
+            apps[i].window.style.zIndex = maxZIndex + 1;
+            console.log(maxZIndex);
             apps[i].window.children[0].style.backgroundColor = "#00a";
             apps[i].window.children[0].style.color = "#fff";
         }

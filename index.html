@@ -13,7 +13,7 @@
 	<meta name="description" content="Windows 3.1 - it's just a toy"/>
 	<meta name="keywords" content="Windows 3.1, Windows, Win3.1, Win31, simulator"/>
 </head>
-<body onload="init()">
+<body onfocus="init()">
 
 	<div id="start-screen" onclick="startWindowsSession()">
 		<img src="img/start-screen.png"/>
@@ -21,7 +21,7 @@
 
 
 
-	<div id="desktop" onmousemove="tryMoveElement(event)" onclick="uncheckStartMenu()">
+	<div id="desktop" onmousemove="tryMoveElement(event)">
 
 		<div class="window" id="window-exit-windows">
 			<div class="title-bar">
