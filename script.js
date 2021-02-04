@@ -69,7 +69,6 @@ function switchScreenMode() {
 
 function clickOnWindow(thisWindow) {
     for (var i=0; i<apps.length; i++) {
-        //apps[i].window.style.zIndex = "1";
         apps[i].window.children[0].style.backgroundColor = "#fff";
         apps[i].window.children[0].style.color = "#000";
         if (thisWindow.getAttribute("id") == apps[i].window.id) {
