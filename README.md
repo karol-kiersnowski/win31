@@ -2,8 +2,6 @@ Windows 3.1 Simulator
 ---------------------
 Windows 3.1 - simple simulator in your browser (it's just a toy)
 
-Projects site - [karol-kiersnowski.github.io/win31](https://karol-kiersnowski.github.io/win31)
-
 ### Project site
 [https://karol-kiersnowski.github.io/win31](https://karol-kiersnowski.github.io/win31)
 
