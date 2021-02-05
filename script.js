@@ -11,6 +11,34 @@ var programManager = {
     mouseYInTitleBar: null
 };
 
+var programManagerMain = {
+    window: document.getElementById("window-program-manager-main"),
+    isMouseDown: false,
+    mouseXInTitleBar: null,
+    mouseYInTitleBar: null
+};
+
+var programManagerAccessories = {
+    window: document.getElementById("window-program-manager-accessories"),
+    isMouseDown: false,
+    mouseXInTitleBar: null,
+    mouseYInTitleBar: null
+};
+
+var programManagerGames = {
+    window: document.getElementById("window-program-manager-games"),
+    isMouseDown: false,
+    mouseXInTitleBar: null,
+    mouseYInTitleBar: null
+};
+
+var programManagerStartup = {
+    window: document.getElementById("window-program-manager-startup"),
+    isMouseDown: false,
+    mouseXInTitleBar: null,
+    mouseYInTitleBar: null
+};
+
 var msdos = {
     window: document.getElementById("window-msdos"),
     isMouseDown: false,
@@ -32,7 +60,7 @@ var writeApp = {
     mouseYInTitleBar: null
 };
 
-var apps = [ programManager, msdos, notepad, writeApp ];
+var apps = [ programManager, programManagerMain, programManagerAccessories, programManagerGames, programManagerStartup, msdos, notepad, writeApp ];
 
 
 
@@ -48,14 +76,14 @@ var apps = [ programManager, msdos, notepad, writeApp ];
 
 
 function init() {
-    programManager.window.focus();
+    programManagerMain.window.focus();
     setTimeout(function() {
         startScreen.style.display = "none";
     }, 2000);
 }
 
 function startWindowsSession() {
-    programManager.window.focus();
+    programManagerMain.window.focus();
     var audio = new Audio("audio/TADA.WAV");
     audio.play();
     startScreen.style.display = "none";

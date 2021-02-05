@@ -50,6 +50,8 @@ body {
 	padding: 2px;
 	border: 1px solid #000;
 	background-color: #c3c7cb;
+	/*resize: both;
+	overflow: auto;*/
 }
 
 	.title-bar {
@@ -281,6 +283,16 @@ body {
 
 
 
+
+
+
+
+
+
+
+
+
+
 #window-exit-windows {
 	display: none;
 	z-index: 999;
@@ -298,12 +310,46 @@ body {
 
 #window-program-manager {
 	z-index: 1;
-	top: calc(50% - 150px);
-	bottom: calc(50% - 150px);
-	left: calc(50% - 200px);
-	right: calc(50% - 200px);
+	top: calc(50% - 160px);
+	left: calc(50% - 250px);
+	height: 320px;
+	width: 500px;
+}
+
+#window-program-manager-main {
+	z-index: 2;
+	top: calc(50% - 175px + 60px);
+	left: calc(50% - 250px + 10px);
+	height: 200px;
 	width: 400px;
-	height: 300px;
+}
+
+#window-program-manager-accessories {
+	display: none;
+	top: calc(50% - 175px + 60px);
+	left: calc(50% - 250px + 10px);
+	height: 200px;
+	width: 400px;
+}
+
+	#window-program-manager-accessories .window-content {
+		overflow-y: auto;
+	}
+
+#window-program-manager-games {
+	display: none;
+	top: calc(50% - 175px + 60px);
+	left: calc(50% - 250px + 10px);
+	/*height: 200px;
+	width: 400px;*/
+}
+
+#window-program-manager-startup {
+	display: none;
+	top: calc(50% - 175px + 60px);
+	left: calc(50% - 250px + 10px);
+	height: 200px;
+	width: 400px;
 }
 
 #window-msdos {

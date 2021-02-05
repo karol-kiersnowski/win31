@@ -140,23 +140,297 @@
 					</div>
 				</div>
 			</div>
-			<div class="window-content">
-				<div class="icon" id="icon-msdos" tabindex="0" ondblclick="runApp(msdos)">
-					<img src="img/ms-dos.png"/>
-					<div class="icon-caption">MS-DOS<br>Prompt</div>
+			<div class="window-content" style="padding-top: 200px;">
+				<div class="icon" id="icon-msdos" tabindex="0" ondblclick="runApp(programManagerAccessories)">
+					<img src="img/group.png"/>
+					<div class="icon-caption">Accessories</div>
 				</div>
-				<div class="icon" id="icon-notepad" tabindex="0" ondblclick="runApp(notepad)">
-					<img src="img/notepad.png"/>
-					<div class="icon-caption">Notepad</div>
+				<div class="icon" id="icon-msdos" tabindex="0" ondblclick="runApp(programManagerGames)">
+					<img src="img/group.png"/>
+					<div class="icon-caption">Games</div>
 				</div>
-				<div class="icon" id="icon-write" tabindex="0" ondblclick="runApp(writeApp)">
-					<img src="img/write.png"/>
-					<div class="icon-caption">Read Me</div>
+				<div class="icon" id="icon-msdos" tabindex="0" ondblclick="runApp(programManagerStartup)">
+					<img src="img/group.png"/>
+					<div class="icon-caption">StartUp</div>
+				</div>
+				<div class="icon" id="icon-msdos" tabindex="0">
+					<img src="img/group.png"/>
+					<div class="icon-caption">Applications</div>
+				</div>
+				<div class="icon" id="icon-msdos" tabindex="0" ondblclick="runApp(programManagerMain)">
+					<img src="img/group.png"/>
+					<div class="icon-caption">Main</div>
 				</div>
 			</div>
 		</div><!-- .WINDOW #WINDOW-PROGRAM-MANAGER -->
 
 
+
+
+
+
+
+
+
+
+
+
+		<div class="window" id="window-program-manager-main" onmousedown="clickOnWindow(this)" tabindex="0">
+			<div class="title-bar">
+				<div class="options-button" tabindex="0">
+					&ndash;
+					<div class="menu-list">
+						<div class="menu-element disabled"><u>R</u>estore</div>
+						<div class="menu-element"><u>M</u>ove...</div>
+						<div class="menu-element"><u>S</u>ize</div>
+						<div class="menu-element">Mi<u>n</u>imize</div>
+						<div class="menu-element">Ma<u>x</u>imize</div>
+						<hr>
+						<div class="menu-element" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)"><u>C</u>lose</div>
+						<hr>
+						<div class="menu-element">S<u>w</u>itch to...</div>
+					</div>
+				</div>
+				<div class="title"
+					onmousedown="setMouseDown(this, event)"
+					onmouseup="setMouseUp(this)">
+					Main
+				</div>
+				<div class="minimize-button">
+					<div class="minimize-button-content" onclick="closeWindow(parentElement.parentElement.parentElement)">&#9662;</div>
+				</div>
+				<div class="maximize-button">
+					<div class="maximize-button-content">&#9652;</div>
+				</div>
+			</div>
+			<div class="window-content">
+				<div class="icon" id="icon-msdos" tabindex="0">
+					<img src="img/main/file-manager.png"/>
+					<div class="icon-caption">File Manager</div>
+				</div>
+				<div class="icon" id="icon-msdos" tabindex="0">
+					<img src="img/main/control-panel.png"/>
+					<div class="icon-caption">Control Panel</div>
+				</div>
+				<div class="icon" id="icon-msdos" tabindex="0">
+					<img src="img/main/print-manager.png"/>
+					<div class="icon-caption">Print Manager</div>
+				</div>
+				<div class="icon" id="icon-msdos" tabindex="0">
+					<img src="img/main/clipbook-viewer.png"/>
+					<div class="icon-caption">ClipBook<br>Viewer</div>
+				</div>
+				<div class="icon" id="icon-msdos" tabindex="0" ondblclick="runApp(msdos)">
+					<img src="img/main/ms-dos.png"/>
+					<div class="icon-caption">MS-DOS<br>Prompt</div>
+				</div>
+				<div class="icon" id="icon-msdos" tabindex="0">
+					<img src="img/main/windows-setup.png"/>
+					<div class="icon-caption">Windows<br>Setup</div>
+				</div>
+				<div class="icon" id="icon-msdos" tabindex="0">
+					<img src="img/main/pif-editor.png"/>
+					<div class="icon-caption">PIF Editor</div>
+				</div>
+				<div class="icon" id="icon-write" tabindex="0" ondblclick="runApp(writeApp)">
+					<img src="img/accessories/write.png"/>
+					<div class="icon-caption">Read Me</div>
+				</div>	
+			</div>
+		</div><!-- .WINDOW #WINDOW-PROGRAM-MANAGER-MAIN -->
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class="window" id="window-program-manager-accessories" onmousedown="clickOnWindow(this)" tabindex="0">
+			<div class="title-bar">
+				<div class="options-button" tabindex="0">
+					&ndash;
+					<div class="menu-list">
+						<div class="menu-element disabled"><u>R</u>estore</div>
+						<div class="menu-element"><u>M</u>ove...</div>
+						<div class="menu-element"><u>S</u>ize</div>
+						<div class="menu-element">Mi<u>n</u>imize</div>
+						<div class="menu-element">Ma<u>x</u>imize</div>
+						<hr>
+						<div class="menu-element" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)"><u>C</u>lose</div>
+						<hr>
+						<div class="menu-element">S<u>w</u>itch to...</div>
+					</div>
+				</div>
+				<div class="title"
+					onmousedown="setMouseDown(this, event)"
+					onmouseup="setMouseUp(this)">
+					Accessories
+				</div>
+				<div class="minimize-button">
+					<div class="minimize-button-content" onclick="closeWindow(parentElement.parentElement.parentElement)">&#9662;</div>
+				</div>
+				<div class="maximize-button">
+					<div class="maximize-button-content">&#9652;</div>
+				</div>
+			</div>
+			<div class="window-content">
+				<div class="icon" id="icon-write" tabindex="0" ondblclick="runApp(writeApp)">
+					<img src="img/accessories/write.png"/>
+					<div class="icon-caption">Write</div>
+				</div>
+				<div class="icon" id="icon-write" tabindex="0">
+					<img src="img/accessories/paintbrush.png"/>
+					<div class="icon-caption">Paintbrush</div>
+				</div>
+				<div class="icon" id="icon-write" tabindex="0">
+					<img src="img/accessories/terminal.png"/>
+					<div class="icon-caption">Terminal</div>
+				</div>
+				<div class="icon" id="icon-notepad" tabindex="0" ondblclick="runApp(notepad)">
+					<img src="img/accessories/notepad.png"/>
+					<div class="icon-caption">Notepad</div>
+				</div>
+				<div class="icon" id="icon-write" tabindex="0">
+					<img src="img/accessories/recorder.png"/>
+					<div class="icon-caption">Recorder</div>
+				</div>
+				<div class="icon" id="icon-write" tabindex="0">
+					<img src="img/accessories/cardfile.png"/>
+					<div class="icon-caption">Cardfile</div>
+				</div>
+				<div class="icon" id="icon-write" tabindex="0">
+					<img src="img/accessories/calculator.png"/>
+					<div class="icon-caption">Calculator</div>
+				</div>
+				<div class="icon" id="icon-write" tabindex="0">
+					<img src="img/accessories/clock.png"/>
+					<div class="icon-caption">Clock</div>
+				</div>
+				<div class="icon" id="icon-write" tabindex="0">
+					<img src="img/accessories/object-packager.png"/>
+					<div class="icon-caption">Object<br>Packager</div>
+				</div>
+				<div class="icon" id="icon-write" tabindex="0">
+					<img src="img/accessories/character-map.png"/>
+					<div class="icon-caption">Character Map</div>
+				</div>
+				<div class="icon" id="icon-write" tabindex="0">
+					<img src="img/accessories/media-player.png"/>
+					<div class="icon-caption">Media Player</div>
+				</div>
+				<div class="icon" id="icon-write" tabindex="0">
+					<img src="img/accessories/sound-recorder.png"/>
+					<div class="icon-caption">Sound<br>Recorder</div>
+				</div>
+			</div>
+		</div><!-- .WINDOW #WINDOW-PROGRAM-MANAGER-ACCESSORIES -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class="window" id="window-program-manager-games" onmousedown="clickOnWindow(this)" tabindex="0">
+			<div class="title-bar">
+				<div class="options-button" tabindex="0">
+					&ndash;
+					<div class="menu-list">
+						<div class="menu-element disabled"><u>R</u>estore</div>
+						<div class="menu-element"><u>M</u>ove...</div>
+						<div class="menu-element"><u>S</u>ize</div>
+						<div class="menu-element">Mi<u>n</u>imize</div>
+						<div class="menu-element">Ma<u>x</u>imize</div>
+						<hr>
+						<div class="menu-element" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)"><u>C</u>lose</div>
+						<hr>
+						<div class="menu-element">S<u>w</u>itch to...</div>
+					</div>
+				</div>
+				<div class="title"
+					onmousedown="setMouseDown(this, event)"
+					onmouseup="setMouseUp(this)">
+					Games
+				</div>
+				<div class="minimize-button">
+					<div class="minimize-button-content" onclick="closeWindow(parentElement.parentElement.parentElement)">&#9662;</div>
+				</div>
+				<div class="maximize-button">
+					<div class="maximize-button-content">&#9652;</div>
+				</div>
+			</div>
+			<div class="window-content">
+				<div class="icon" id="icon-msdos" tabindex="0">
+					<img src="img/games/solitaire.png"/>
+					<div class="icon-caption">Solitaire</div>
+				</div>
+				<div class="icon" id="icon-msdos" tabindex="0">
+					<img src="img/games/minesweeper.png"/>
+					<div class="icon-caption">Minesweeper</div>
+				</div>
+				<div class="icon" id="icon-msdos" tabindex="0">
+					<img src="img/games/hearts.png"/>
+					<div class="icon-caption">Hearts</div>
+				</div>
+			</div>
+		</div><!-- .WINDOW #WINDOW-PROGRAM-MANAGER-GAMES -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class="window" id="window-program-manager-startup" onmousedown="clickOnWindow(this)" tabindex="0">
+			<div class="title-bar">
+				<div class="options-button" tabindex="0">
+					&ndash;
+					<div class="menu-list">
+						<div class="menu-element disabled"><u>R</u>estore</div>
+						<div class="menu-element"><u>M</u>ove...</div>
+						<div class="menu-element"><u>S</u>ize</div>
+						<div class="menu-element">Mi<u>n</u>imize</div>
+						<div class="menu-element">Ma<u>x</u>imize</div>
+						<hr>
+						<div class="menu-element" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)"><u>C</u>lose</div>
+						<hr>
+						<div class="menu-element">S<u>w</u>itch to...</div>
+					</div>
+				</div>
+				<div class="title"
+					onmousedown="setMouseDown(this, event)"
+					onmouseup="setMouseUp(this)">
+					StartUp
+				</div>
+				<div class="minimize-button">
+					<div class="minimize-button-content" onclick="closeWindow(parentElement.parentElement.parentElement)">&#9662;</div>
+				</div>
+				<div class="maximize-button">
+					<div class="maximize-button-content">&#9652;</div>
+				</div>
+			</div>
+			<div class="window-content">
+
+			</div>
+		</div><!-- .WINDOW #WINDOW-PROGRAM-MANAGER-STARTUP -->
 
 
 
@@ -173,14 +447,27 @@
 
 		<div class="window-with-menu-bar" id="window-notepad" onmousedown="clickOnWindow(this)" tabindex="0">
 			<div class="title-bar">
-				<div class="options-button" onclick="closeWindow(parentElement.parentElement)">&ndash;</div>
+				<div class="options-button" tabindex="0">
+					&ndash;
+					<div class="menu-list">
+						<div class="menu-element disabled"><u>R</u>estore</div>
+						<div class="menu-element"><u>M</u>ove...</div>
+						<div class="menu-element"><u>S</u>ize</div>
+						<div class="menu-element">Mi<u>n</u>imize</div>
+						<div class="menu-element">Ma<u>x</u>imize</div>
+						<hr>
+						<div class="menu-element" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)"><u>C</u>lose</div>
+						<hr>
+						<div class="menu-element">S<u>w</u>itch to...</div>
+					</div>
+				</div>
 				<div class="title"
 					onmousedown="setMouseDown(this, event)"
 					onmouseup="setMouseUp(this)">
 					Notepad
 				</div>
 				<div class="minimize-button">
-					<div class="minimize-button-content">&#9662;</div>
+					<div class="minimize-button-content" onclick="closeWindow(parentElement.parentElement.parentElement)">&#9662;</div>
 				</div>
 				<div class="maximize-button">
 					<div class="maximize-button-content">&#9652;</div>
@@ -228,14 +515,27 @@
 
 		<div class="window-with-menu-bar" id="window-write" onmousedown="clickOnWindow(this)" tabindex="0">
 			<div class="title-bar">
-				<div class="options-button" onclick="closeWindow(parentElement.parentElement)">&ndash;</div>
+				<div class="options-button" tabindex="0">
+					&ndash;
+					<div class="menu-list">
+						<div class="menu-element disabled"><u>R</u>estore</div>
+						<div class="menu-element"><u>M</u>ove...</div>
+						<div class="menu-element"><u>S</u>ize</div>
+						<div class="menu-element">Mi<u>n</u>imize</div>
+						<div class="menu-element">Ma<u>x</u>imize</div>
+						<hr>
+						<div class="menu-element" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)"><u>C</u>lose</div>
+						<hr>
+						<div class="menu-element">S<u>w</u>itch to...</div>
+					</div>
+				</div>
 				<div class="title"
 					onmousedown="setMouseDown(this, event)"
 					onmouseup="setMouseUp(this)">
 					Write - README.WRI
 				</div>
 				<div class="minimize-button">
-					<div class="minimize-button-content">&#9662;</div>
+					<div class="minimize-button-content" onclick="closeWindow(parentElement.parentElement.parentElement)">&#9662;</div>
 				</div>
 				<div class="maximize-button">
 					<div class="maximize-button-content">&#9652;</div>
