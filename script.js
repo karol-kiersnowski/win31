@@ -25,15 +25,37 @@ var notepad = {
     mouseYInTitleBar: null
 };
 
-var apps = [ programManager, msdos, notepad ];
+var writeApp = {
+    window: document.getElementById("window-write"),
+    isMouseDown: false,
+    mouseXInTitleBar: null,
+    mouseYInTitleBar: null
+};
+
+var apps = [ programManager, msdos, notepad, writeApp ];
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 function init() {
+    programManager.window.focus();
     setTimeout(function() {
         startScreen.style.display = "none";
     }, 2000);
 }
 
 function startWindowsSession() {
+    programManager.window.focus();
     var audio = new Audio("audio/TADA.WAV");
     audio.play();
     startScreen.style.display = "none";
@@ -68,17 +90,9 @@ function switchScreenMode() {
 }
 
 function clickOnWindow(thisWindow) {
-    for (var i=0; i<apps.length; i++) {
-        apps[i].window.children[0].style.backgroundColor = "#fff";
-        apps[i].window.children[0].style.color = "#000";
-        if (thisWindow.getAttribute("id") == apps[i].window.id) {
-            var maxZIndex = Math.max(apps[0].window.style.zIndex, apps[1].window.style.zIndex, apps[2].window.style.zIndex);
-            apps[i].window.style.zIndex = maxZIndex + 1;
-            console.log(maxZIndex);
-            apps[i].window.children[0].style.backgroundColor = "#00a";
-            apps[i].window.children[0].style.color = "#fff";
-        }
-    }
+    for (var i=0; i<apps.length; i++)
+        if (thisWindow.getAttribute("id") == apps[i].window.id)
+            apps[i].window.style.zIndex = (Math.max(apps[0].window.style.zIndex, apps[1].window.style.zIndex, apps[2].window.style.zIndex))+ 1;
 }
 
 function setMouseDown(titleBar, mouse) {
@@ -109,5 +123,6 @@ function tryMoveElement(mouse) {
 function runApp(app) {
     app.window.style.display = "block";
     app.window.style.zIndex = "2";
+    app.window.focus();
     clickOnWindow(app.window);
 }

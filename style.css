@@ -47,7 +47,7 @@ body {
 	z-index: 1;
 	/*resize: both;
 	overflow: auto;*/
-	padding: 1px;
+	padding: 2px;
 	border: 1px solid #000;
 	background-color: #c3c7cb;
 }
@@ -58,13 +58,19 @@ body {
 		text-align: center;
 		border: 1px solid #000;
 		/*background-color: #c3c7cb;*/
+		background-color: #fff;
+		color: #000;
+	}
+
+	.window:focus-within .title-bar,
+	.window-with-menu-bar:focus-within .title-bar {
 		background-color: #00a;
 		color: #fff;
 	}
 
 		.title {
 			padding: 1px;
-			font-size: 16px;
+			font-size: 14px;
 			font-weight: bold;
 		}
 
@@ -87,7 +93,8 @@ body {
 				2px 2px 0 #868a8e;
 		}
 
-		.options-button:focus {
+		.options-button:focus,
+		.options-button:active {
 			background-color: #868a8e;
 		}
 
@@ -139,6 +146,7 @@ body {
 		border-left: 1px solid #000;
 		border-right: 1px solid #000;
 		background-color: #fff;
+		font-size: 14px;
 	}
 
 		.menu-option {
@@ -184,25 +192,41 @@ body {
 
 	.window-with-menu-bar .window-content {
 		//padding: 5px;
-		height: calc(100% - 44px);
+		height: calc(100% - 42px);
 	}
 
 	.window .window-content {
-		height: calc(100% - 23px);
+		height: calc(100% - 22px);
 	}
 
 		.icon {
 			display: inline-block;
 			position: relative;
-			padding: 5px;
+			margin: 2px 2px;
+			width: 64px;
+			text-align: center;
 		}
 
-		.icon:focus {
-			background-color: #eef;
-		}
+			.icon img {
+				display: block;
+				margin-bottom: 2px;
+				margin-left: auto;
+				margin-right: auto;
+			}
 
 			.icon-caption {
+				display: inline-block;
+				margin: 0;
+				padding: 0px 2px;
+				font-size: 12px;
+				line-height: 14px;
+				white-space: nowrap;
+				vertical-align: top;
+			}
 
+			.icon:focus .icon-caption {
+				background-color: #00a;
+				color: #fff;
 			}
 
 		button {
@@ -227,11 +251,23 @@ body {
 
 
 
-
+.disabled {
+	opacity: 0.25;
+}
 
 .clear {
 	clear: both;
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -299,5 +335,22 @@ body {
 	#window-notepad textarea {
 		user-select: text;
 		cursor: text;
-		caret-style: block;
+		/*caret-style: block;*/
+	}
+
+#window-write {
+	display: none;
+	top: calc(50% - 240px);
+	/*bottom: calc(50% - 175px);*/
+	left: calc(50% - 320px);
+	/*right: calc(50% - 250px);*/
+	height: 480px;
+	width: 640px;
+}
+
+	#window-write textarea {
+		height: 428px;
+		width: 632px;
+		user-select: text;
+		cursor: text;
 	}

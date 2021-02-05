@@ -13,7 +13,7 @@
 	<meta name="description" content="Windows 3.1 - it's just a toy"/>
 	<meta name="keywords" content="Windows 3.1, Windows, Win3.1, Win31, simulator"/>
 </head>
-<body onfocus="init()">
+<body onload="init()">
 
 	<div id="start-screen" onclick="startWindowsSession()">
 		<img src="img/start-screen.png"/>
@@ -21,9 +21,20 @@
 
 
 
-	<div id="desktop" onmousemove="tryMoveElement(event)">
+	<div id="desktop" onmousemove="tryMoveElement(event)" tabindex="0">
 
-		<div class="window" id="window-exit-windows">
+
+
+
+
+
+
+
+
+
+
+
+		<div class="window" id="window-exit-windows" tabindex="0">
 			<div class="title-bar">
 				<div class="options-button">&ndash;</div>
 				<div class="title">Exit Windows</div>
@@ -38,7 +49,22 @@
 			</div>
 		</div> <!-- .WINDOW #WINDOW-EXIT-WINDOWS -->
 
-		<div class="window-with-menu-bar" id="window-program-manager" onmousedown="clickOnWindow(this)">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class="window-with-menu-bar" id="window-program-manager" onmousedown="clickOnWindow(this)" tabindex="0">
 			<div class="title-bar">
 				<div class="options-button" tabindex="0">
 					&ndash;
@@ -117,14 +143,35 @@
 			<div class="window-content">
 				<div class="icon" id="icon-msdos" tabindex="0" ondblclick="runApp(msdos)">
 					<img src="img/ms-dos.png"/>
+					<div class="icon-caption">MS-DOS<br>Prompt</div>
 				</div>
 				<div class="icon" id="icon-notepad" tabindex="0" ondblclick="runApp(notepad)">
 					<img src="img/notepad.png"/>
+					<div class="icon-caption">Notepad</div>
+				</div>
+				<div class="icon" id="icon-write" tabindex="0" ondblclick="runApp(writeApp)">
+					<img src="img/write.png"/>
+					<div class="icon-caption">Read Me</div>
 				</div>
 			</div>
 		</div><!-- .WINDOW #WINDOW-PROGRAM-MANAGER -->
 
-		<div class="window-with-menu-bar" id="window-notepad" onmousedown="clickOnWindow(this)">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class="window-with-menu-bar" id="window-notepad" onmousedown="clickOnWindow(this)" tabindex="0">
 			<div class="title-bar">
 				<div class="options-button" onclick="closeWindow(parentElement.parentElement)">&ndash;</div>
 				<div class="title"
@@ -144,9 +191,12 @@
 					<u>F</u>ile
 					<div class="menu-list">
 						<div class="menu-element"><u>N</u>ew</div>
-						<div class="menu-element"><u>O</u>pen</div>
+						<div class="menu-element"><u>O</u>pen...</div>
 						<div class="menu-element"><u>S</u>ave</div>
 						<div class="menu-element">Save <u>A</u>s...</div>
+						<div class="menu-element disabled"><u>P</u>rint</div>
+						<div class="menu-element">Page Se<u>t</u>up...</div>
+						<div class="menu-element">P<u>r</u>int Setup...</div>
 						<hr>
 						<div class="menu-element" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)">E<u>x</u>it</div>
 					</div>
@@ -159,7 +209,82 @@
 			</div>
 		</div><!-- .WINDOW #WINDOW-NOTEPAD -->
 
-		<div class="window" id="window-msdos" onmousedown="clickOnWindow(this)">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class="window-with-menu-bar" id="window-write" onmousedown="clickOnWindow(this)" tabindex="0">
+			<div class="title-bar">
+				<div class="options-button" onclick="closeWindow(parentElement.parentElement)">&ndash;</div>
+				<div class="title"
+					onmousedown="setMouseDown(this, event)"
+					onmouseup="setMouseUp(this)">
+					Write - README.WRI
+				</div>
+				<div class="minimize-button">
+					<div class="minimize-button-content">&#9662;</div>
+				</div>
+				<div class="maximize-button">
+					<div class="maximize-button-content">&#9652;</div>
+				</div>
+			</div>
+			<div class="menu-bar">
+				<div class="menu-option" tabindex="0">
+					<u>F</u>ile
+					<div class="menu-list">
+						<div class="menu-element"><u>N</u>ew</div>
+						<div class="menu-element"><u>O</u>pen...</div>
+						<div class="menu-element"><u>S</u>ave</div>
+						<div class="menu-element">Save <u>A</u>s...</div>
+						<hr>
+						<div class="menu-element disabled"><u>P</u>rint...</div>
+						<div class="menu-element">P<u>r</u>int Setup...</div>
+						<div class="menu-element">R<u>e</u>paginate...</div>
+						<hr>
+						<div class="menu-element" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)">E<u>x</u>it</div>
+					</div>
+				</div><div class="menu-option" tabindex="0"><u>E</u>dit
+				</div><div class="menu-option" tabindex="0">Fi<u>n</u>d
+				</div><div class="menu-option" tabindex="0"><u>C</u>haracter
+				</div><div class="menu-option" tabindex="0"><u>P</u>aragraph
+				</div><div class="menu-option" tabindex="0"><u>D</u>ocument
+				</div><div class="menu-option" tabindex="0"><u>H</u>elp</div>
+			</div>
+			<div class="window-content">
+				<textarea>Hello! This is Windows 3.1 Simulator. Project site: https://github.com/karol-kiersnowski/win31</textarea>
+			</div>
+		</div><!-- .WINDOW #WINDOW-WRITE-README -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class="window" id="window-msdos" onmousedown="clickOnWindow(this)" tabindex="0">
 			<div class="title-bar">
 				<div class="options-button" onclick="closeWindow(parentElement.parentElement)">&ndash;</div>
 				<div class="title"
