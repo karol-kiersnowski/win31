@@ -4,9 +4,8 @@ Windows 3.1 - simple simulator in your browser (it's just a toy)
 
 Projects site - [karol-kiersnowski.github.io/win31](https://karol-kiersnowski.github.io/win31)
 
-### Project sites
-1. [https://karol-kiersnowski.github.io/win31](https://karol-kiersnowski.github.io/win31)
-2. [http://karol-kiersnowski.prv.pl/projects/win31](http://karol-kiersnowski.prv.pl/projects/win31)
+### Project site
+[https://karol-kiersnowski.github.io/win31](https://karol-kiersnowski.github.io/win31)
 
 ### Documentation & source code
 1. [https://github.com/karol-kiersnowski/win31](https://github.com/karol-kiersnowski/win31)
