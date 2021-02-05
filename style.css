@@ -47,21 +47,17 @@ body {
 	z-index: 1;
 	/*resize: both;
 	overflow: auto;*/
-	padding: 2px;
-	border: 1px solid #000;
+	border: 4px double #000;
 	background-color: #c3c7cb;
-	/*resize: both;
-	overflow: auto;*/
 }
 
 	.title-bar {
 		position: relative;
-		height: 22px;
-		text-align: center;
-		border: 1px solid #000;
-		/*background-color: #c3c7cb;*/
+		height: 21px;
+		border-bottom: 1px solid #000;
 		background-color: #fff;
 		color: #000;
+		text-align: center;
 	}
 
 	.window:focus-within .title-bar,
@@ -110,12 +106,14 @@ body {
 		.minimize-button {
 			position: absolute;
 			top: 0;
-			right: 20px;
+			right: 21px;
 			width: 20px;
 			height: 20px;
-			border-left: 1px solid #000;
+			border: 1px outset;
 			background-color: #c3c7cb;
 			color: #000;
+			font-size: 11px;
+			vertical-align: bottom;
 		}
 
 		.maximize-button {
@@ -124,29 +122,47 @@ body {
 			right: 0;
 			width: 20px;
 			height: 20px;
-			border-left: 1px solid #000;
+			border: 1px outset;
 			background-color: #c3c7cb;
 			color: #000;
+			font-size: 11px;
+			vertical-align: top;
 		}
 
-			.minimize-button-content,
-			.maximize-button-content {
-				padding-bottom: 4px;
-				width: 100%;
-				height: 100%;
-				border: 1px outset;
-				font-size: 11px;
+			.minimize-button i {
+				vertical-align: top;
 			}
 
-			.minimize-button-content:active,
-			.maximize-button-content:active {
-				border-style: inset;
-				//transform: translate(1px, 1px);
+			.maximize-button i {
+				vertical-align: bottom;
 			}
+
+		.minimize-vertical-line {
+			position: absolute;
+			top: 0;
+			right: 41px;
+			border-left: 1px solid #000;
+			width: 1px;
+			height: 20px;
+		}
+
+		.maximize-vertical-line {
+			position: absolute;
+			top: 0;
+			right: 20px;
+			border-left: 1px solid #000;
+			width: 1px;
+			height: 20px;
+		}
+
+		.minimize-button:active,
+		.maximize-button:active {
+			border: 2px inset;
+			//transform: translate(1px, 1px);
+		}
 
 	.menu-bar {
-		border-left: 1px solid #000;
-		border-right: 1px solid #000;
+		border-bottom: 1px solid #000;
 		background-color: #fff;
 		font-size: 14px;
 	}
@@ -170,6 +186,7 @@ body {
 				border: 1px solid #000;
 				background-color: #fff;
 				color: #000;
+				white-space: nowrap;
 			}
 
 			.menu-option:focus .menu-list {
@@ -188,7 +205,6 @@ body {
 	.window-content {
 		position: relative;
 		width: 100%;
-		border: 1px solid #000;
 		background-color: #fff;
 	}
 
@@ -345,6 +361,14 @@ body {
 }
 
 #window-program-manager-startup {
+	display: none;
+	top: calc(50% - 175px + 60px);
+	left: calc(50% - 250px + 10px);
+	height: 200px;
+	width: 400px;
+}
+
+#window-program-manager-applications {
 	display: none;
 	top: calc(50% - 175px + 60px);
 	left: calc(50% - 250px + 10px);

@@ -11,7 +11,7 @@
 
 	<title>Windows 3.1</title>
 	<meta name="description" content="Windows 3.1 - it's just a toy"/>
-	<meta name="keywords" content="Windows 3.1, Windows, Win3.1, Win31, simulator"/>
+	<meta name="keywords" content="Windows, Win, Windows 3.1, Windows31, Win 3.1, Win3.1, Win31, simulator"/>
 </head>
 <body onload="init()">
 
@@ -41,7 +41,7 @@
 			</div>
 			<div class="window-content" style="padding: 10px;">
 				<p>
-					<i class="fas fa-info-circle" style="color: #00a; font-size: xx-large;vertical-align: sub;"></i> 
+					<i class="fas fa-info-circle" style="color: #00a; font-size: xx-large;vertical-align: sub;"></i>
 					This will end your Windows session
 				</p>
 				<button id="button-ok" onclick="exitWindowsSession()">OK</button>
@@ -85,11 +85,13 @@
 					onmouseup="setMouseUp(this)">
 					Program Manager
 				</div>
-				<div class="minimize-button">
-					<div class="minimize-button-content">&#9662;</div>
+				<div class="minimize-vertical-line"></div>
+				<div class="minimize-button" onclick="showWindowExitWindows()">
+					<i class="fas fa-sort-down"></i>
 				</div>
-				<div class="maximize-button" onclick="switchScreenMode()">
-					<div class="maximize-button-content">&#9652;</div>
+				<div class="maximize-vertical-line"></div>
+				<div class="maximize-button" onclick="maximizeWindow(this)">
+					<i class="fas fa-sort-up"></i>
 				</div>
 			</div>
 			<div class="menu-bar">
@@ -153,7 +155,7 @@
 					<img src="img/group.png"/>
 					<div class="icon-caption">StartUp</div>
 				</div>
-				<div class="icon" id="icon-msdos" tabindex="0">
+				<div class="icon" id="icon-msdos" tabindex="0" ondblclick="runApp(programManagerApplications)">
 					<img src="img/group.png"/>
 					<div class="icon-caption">Applications</div>
 				</div>
@@ -196,11 +198,13 @@
 					onmouseup="setMouseUp(this)">
 					Main
 				</div>
-				<div class="minimize-button">
-					<div class="minimize-button-content" onclick="closeWindow(parentElement.parentElement.parentElement)">&#9662;</div>
+				<div class="minimize-vertical-line"></div>
+				<div class="minimize-button" onclick="closeWindow(parentElement.parentElement)">
+					<i class="fas fa-sort-down"></i>
 				</div>
-				<div class="maximize-button">
-					<div class="maximize-button-content">&#9652;</div>
+				<div class="maximize-vertical-line"></div>
+				<div class="maximize-button" onclick="maximizeWindow(this)">
+					<i class="fas fa-sort-up"></i>
 				</div>
 			</div>
 			<div class="window-content">
@@ -271,11 +275,13 @@
 					onmouseup="setMouseUp(this)">
 					Accessories
 				</div>
-				<div class="minimize-button">
-					<div class="minimize-button-content" onclick="closeWindow(parentElement.parentElement.parentElement)">&#9662;</div>
+				<div class="minimize-vertical-line"></div>
+				<div class="minimize-button" onclick="closeWindow(parentElement.parentElement)">
+					<i class="fas fa-sort-down"></i>
 				</div>
-				<div class="maximize-button">
-					<div class="maximize-button-content">&#9652;</div>
+				<div class="maximize-vertical-line"></div>
+				<div class="maximize-button" onclick="maximizeWindow(this)">
+					<i class="fas fa-sort-up"></i>
 				</div>
 			</div>
 			<div class="window-content">
@@ -363,11 +369,13 @@
 					onmouseup="setMouseUp(this)">
 					Games
 				</div>
-				<div class="minimize-button">
-					<div class="minimize-button-content" onclick="closeWindow(parentElement.parentElement.parentElement)">&#9662;</div>
+				<div class="minimize-vertical-line"></div>
+				<div class="minimize-button" onclick="closeWindow(parentElement.parentElement)">
+					<i class="fas fa-sort-down"></i>
 				</div>
-				<div class="maximize-button">
-					<div class="maximize-button-content">&#9652;</div>
+				<div class="maximize-vertical-line"></div>
+				<div class="maximize-button" onclick="maximizeWindow(this)">
+					<i class="fas fa-sort-up"></i>
 				</div>
 			</div>
 			<div class="window-content">
@@ -420,17 +428,66 @@
 					onmouseup="setMouseUp(this)">
 					StartUp
 				</div>
-				<div class="minimize-button">
-					<div class="minimize-button-content" onclick="closeWindow(parentElement.parentElement.parentElement)">&#9662;</div>
+				<div class="minimize-vertical-line"></div>
+				<div class="minimize-button" onclick="closeWindow(parentElement.parentElement)">
+					<i class="fas fa-sort-down"></i>
 				</div>
-				<div class="maximize-button">
-					<div class="maximize-button-content">&#9652;</div>
+				<div class="maximize-vertical-line"></div>
+				<div class="maximize-button" onclick="maximizeWindow(this)">
+					<i class="fas fa-sort-up"></i>
 				</div>
 			</div>
 			<div class="window-content">
 
 			</div>
 		</div><!-- .WINDOW #WINDOW-PROGRAM-MANAGER-STARTUP -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+		<div class="window" id="window-program-manager-applications" onmousedown="clickOnWindow(this)" tabindex="0">
+			<div class="title-bar">
+				<div class="options-button" tabindex="0">
+					&ndash;
+					<div class="menu-list">
+						<div class="menu-element disabled"><u>R</u>estore</div>
+						<div class="menu-element"><u>M</u>ove...</div>
+						<div class="menu-element"><u>S</u>ize</div>
+						<div class="menu-element">Mi<u>n</u>imize</div>
+						<div class="menu-element">Ma<u>x</u>imize</div>
+						<hr>
+						<div class="menu-element" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)"><u>C</u>lose</div>
+						<hr>
+						<div class="menu-element">S<u>w</u>itch to...</div>
+					</div>
+				</div>
+				<div class="title"
+					onmousedown="setMouseDown(this, event)"
+					onmouseup="setMouseUp(this)">
+					Applications
+				</div>
+				<div class="minimize-vertical-line"></div>
+				<div class="minimize-button" onclick="closeWindow(parentElement.parentElement)">
+					<i class="fas fa-sort-down"></i>
+				</div>
+				<div class="maximize-vertical-line"></div>
+				<div class="maximize-button" onclick="maximizeWindow(this)">
+					<i class="fas fa-sort-up"></i>
+				</div>
+			</div>
+			<div class="window-content">
+
+			</div>
+		</div><!-- .WINDOW #WINDOW-PROGRAM-MANAGER-APPLICATIONS -->
 
 
 
@@ -466,11 +523,13 @@
 					onmouseup="setMouseUp(this)">
 					Notepad
 				</div>
-				<div class="minimize-button">
-					<div class="minimize-button-content" onclick="closeWindow(parentElement.parentElement.parentElement)">&#9662;</div>
+				<div class="minimize-vertical-line"></div>
+				<div class="minimize-button" onclick="closeWindow(parentElement.parentElement)">
+					<i class="fas fa-sort-down"></i>
 				</div>
-				<div class="maximize-button">
-					<div class="maximize-button-content">&#9652;</div>
+				<div class="maximize-vertical-line"></div>
+				<div class="maximize-button" onclick="maximizeWindow(this)">
+					<i class="fas fa-sort-up"></i>
 				</div>
 			</div>
 			<div class="menu-bar">
@@ -534,11 +593,13 @@
 					onmouseup="setMouseUp(this)">
 					Write - README.WRI
 				</div>
-				<div class="minimize-button">
-					<div class="minimize-button-content" onclick="closeWindow(parentElement.parentElement.parentElement)">&#9662;</div>
+				<div class="minimize-vertical-line"></div>
+				<div class="minimize-button" onclick="closeWindow(parentElement.parentElement)">
+					<i class="fas fa-sort-down"></i>
 				</div>
-				<div class="maximize-button">
-					<div class="maximize-button-content">&#9652;</div>
+				<div class="maximize-vertical-line"></div>
+				<div class="maximize-button" onclick="maximizeWindow(this)">
+					<i class="fas fa-sort-up"></i>
 				</div>
 			</div>
 			<div class="menu-bar">
@@ -586,17 +647,32 @@
 
 		<div class="window" id="window-msdos" onmousedown="clickOnWindow(this)" tabindex="0">
 			<div class="title-bar">
-				<div class="options-button" onclick="closeWindow(parentElement.parentElement)">&ndash;</div>
+				<div class="options-button" tabindex="0">
+					&ndash;
+					<div class="menu-list">
+						<div class="menu-element disabled"><u>R</u>estore</div>
+						<div class="menu-element"><u>M</u>ove...</div>
+						<div class="menu-element"><u>S</u>ize</div>
+						<div class="menu-element">Mi<u>n</u>imize</div>
+						<div class="menu-element">Ma<u>x</u>imize</div>
+						<hr>
+						<div class="menu-element" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)"><u>C</u>lose</div>
+						<hr>
+						<div class="menu-element">S<u>w</u>itch to...</div>
+					</div>
+				</div>
 				<div class="title"
 					onmousedown="setMouseDown(this, event)"
 					onmouseup="setMouseUp(this)">
 					MS-DOS Prompt
 				</div>
-				<div class="minimize-button">
-					<div class="minimize-button-content">&#9662;</div>
+				<div class="minimize-vertical-line"></div>
+				<div class="minimize-button" onclick="closeWindow(parentElement.parentElement)">
+					<i class="fas fa-sort-down"></i>
 				</div>
-				<div class="maximize-button">
-					<div class="maximize-button-content">&#9652;</div>
+				<div class="maximize-vertical-line"></div>
+				<div class="maximize-button" onclick="maximizeWindow(this)">
+					<i class="fas fa-sort-up"></i>
 				</div>
 			</div>
 			<div class="window-content">

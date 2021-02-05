@@ -6,6 +6,8 @@ var windowExitWindows = document.getElementById("window-exit-windows");
 
 var programManager = {
     window: document.getElementById("window-program-manager"),
+    isMinimize: false,
+    isMaximize: false,
     isMouseDown: false,
     mouseXInTitleBar: null,
     mouseYInTitleBar: null
@@ -13,6 +15,8 @@ var programManager = {
 
 var programManagerMain = {
     window: document.getElementById("window-program-manager-main"),
+    isMinimize: false,
+    isMaximize: false,
     isMouseDown: false,
     mouseXInTitleBar: null,
     mouseYInTitleBar: null
@@ -20,6 +24,8 @@ var programManagerMain = {
 
 var programManagerAccessories = {
     window: document.getElementById("window-program-manager-accessories"),
+    isMinimize: false,
+    isMaximize: false,
     isMouseDown: false,
     mouseXInTitleBar: null,
     mouseYInTitleBar: null
@@ -27,6 +33,8 @@ var programManagerAccessories = {
 
 var programManagerGames = {
     window: document.getElementById("window-program-manager-games"),
+    isMinimize: false,
+    isMaximize: false,
     isMouseDown: false,
     mouseXInTitleBar: null,
     mouseYInTitleBar: null
@@ -34,6 +42,17 @@ var programManagerGames = {
 
 var programManagerStartup = {
     window: document.getElementById("window-program-manager-startup"),
+    isMinimize: false,
+    isMaximize: false,
+    isMouseDown: false,
+    mouseXInTitleBar: null,
+    mouseYInTitleBar: null
+};
+
+var programManagerApplications = {
+    window: document.getElementById("window-program-manager-applications"),
+    isMinimize: false,
+    isMaximize: false,
     isMouseDown: false,
     mouseXInTitleBar: null,
     mouseYInTitleBar: null
@@ -41,6 +60,8 @@ var programManagerStartup = {
 
 var msdos = {
     window: document.getElementById("window-msdos"),
+    isMinimize: false,
+    isMaximize: false,
     isMouseDown: false,
     mouseXInTitleBar: null,
     mouseYInTitleBar: null
@@ -48,6 +69,8 @@ var msdos = {
 
 var notepad = {
     window: document.getElementById("window-notepad"),
+    isMinimize: false,
+    isMaximize: false,
     isMouseDown: false,
     mouseXInTitleBar: null,
     mouseYInTitleBar: null
@@ -55,12 +78,14 @@ var notepad = {
 
 var writeApp = {
     window: document.getElementById("window-write"),
+    isMinimize: false,
+    isMaximize: false,
     isMouseDown: false,
     mouseXInTitleBar: null,
     mouseYInTitleBar: null
 };
 
-var apps = [ programManager, programManagerMain, programManagerAccessories, programManagerGames, programManagerStartup, msdos, notepad, writeApp ];
+var apps = [ programManager, programManagerMain, programManagerAccessories, programManagerGames, programManagerStartup, programManagerApplications, msdos, notepad, writeApp ];
 
 
 
@@ -105,6 +130,53 @@ function showWindowExitWindows() {
 function closeWindow(thisWindow) {
     thisWindow.style.display = "none";
 }
+
+function maximizeWindow(maximizeButton) {
+	var thisApp;
+	var thisWindow = maximizeButton.parentElement.parentElement;
+	var restoreButtonInOptions = thisWindow.children[0].children[0].children[0].children[0];
+	var maximizeButtonInOptions = thisWindow.children[0].children[0].children[0].children[4];
+
+	for (var i=0; i<apps.length; i++)
+        if (thisWindow.getAttribute("id") == apps[i].window.id)
+            thisApp = apps[i];
+
+	if (thisApp.isMaximize) {
+		thisApp.window.style.top = "";
+		thisApp.window.style.left = "";
+		thisApp.window.style.width = "";
+		thisApp.window.style.height = "";
+		thisApp.window.style.border = "";
+		if (maximizeButton.className == "maximize-button")
+			thisApp.isMaximize = false;
+
+		maximizeButton.children[0].className = "fas fa-sort-up";
+		maximizeButton.children[0].style.verticalAlign = "bottom";
+
+		restoreButtonInOptions.className = "menu-element disabled";
+		maximizeButtonInOptions.className = "menu-element";
+	} else {
+		thisApp.window.style.top = "0px";
+		thisApp.window.style.left = "0px";
+		thisApp.window.style.width = "100%";
+		thisApp.window.style.height = "100%";
+		thisApp.window.style.border = "0px";
+
+		if (maximizeButton.className == "maximize-button")
+			thisApp.isMaximize = true;
+
+		maximizeButton.children[0].className = "fas fa-sort";
+		maximizeButton.children[0].style.verticalAlign = "middle";
+
+		restoreButtonInOptions.className = "menu-element";
+		maximizeButtonInOptions.className = "menu-element disabled";
+	}
+}
+
+// function maximizeWindowByOptions(maximizeButton) {
+// 	if (maximizeButton.className == "menu-element")
+
+// }
 
 function switchScreenMode() {
     if (!isFullscreen) {
