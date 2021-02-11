@@ -43,13 +43,19 @@
 
 		<div class="window" id="window-exit-windows" tabindex="0">
 			<div class="title-bar">
-				<div class="control-menu-box" ondblclick="closeWindow(this)">&ndash;</div>
+				<div class="control-menu" tabindex="0">
+					<div class="control-menu-box" ondblclick="closeWindow(this)">&ndash;</div>
+					<div class="menu-list">
+						<div class="menu-command disabled"><u>M</u>ove...</div>
+						<div class="menu-command" onclick="showWindowExitWindows()"><u>C</u>lose</div>
+					</div>
+			</div>
 				<div class="title">Exit Windows</div>
 			</div>
 			<div class="window-content" style="padding: 10px;">
 				<p>
-					<i class="fas fa-info-circle" style="color: #00a; font-size: xx-large;vertical-align: sub;"></i>
-					This will end your Windows session
+					<i class="fas fa-info-circle"></i>
+					<span>This will end your Windows session.</span>
 				</p>
 				<button id="button-ok" onclick="exitWindowsSession()">OK</button>
 				<button onclick="closeWindow(this)">Cancel</button>
@@ -73,8 +79,8 @@
 
 		<div class="window-with-menu-bar" id="window-program-manager" onmousedown="clickOnWindow(this)" tabindex="0">
 			<div class="title-bar">
-				<div class="control-menu-box" tabindex="0" ondblclick="showWindowExitWindows()">
-					&ndash;
+				<div class="control-menu" tabindex="0">
+					<div class="control-menu-box" ondblclick="showWindowExitWindows()">&ndash;</div>
 					<div class="menu-list">
 						<div class="menu-command disabled" onclick="maximizeWindow(this)"><u>R</u>estore</div>
 						<div class="menu-command"><u>M</u>ove...</div>
@@ -187,8 +193,8 @@
 
 		<div class="window" id="window-program-manager-main" onmousedown="clickOnWindow(this)" tabindex="0">
 			<div class="title-bar">
-				<div class="control-menu-box" tabindex="0" ondblclick="closeWindow(this)">
-					&ndash;
+				<div class="control-menu" tabindex="0">
+					<div class="control-menu-box" ondblclick="closeWindow(this)">&ndash;</div>
 					<div class="menu-list">
 						<div class="menu-command disabled" onclick="maximizeWindow(this)"><u>R</u>estore</div>
 						<div class="menu-command"><u>M</u>ove...</div>
@@ -265,8 +271,8 @@
 
 		<div class="window" id="window-program-manager-accessories" onmousedown="clickOnWindow(this)" tabindex="0">
 			<div class="title-bar">
-				<div class="control-menu-box" tabindex="0" ondblclick="closeWindow(this)">
-					&ndash;
+				<div class="control-menu" tabindex="0">
+					<div class="control-menu-box" ondblclick="closeWindow(this)">&ndash;</div>
 					<div class="menu-list">
 						<div class="menu-command disabled" onclick="maximizeWindow(this)"><u>R</u>estore</div>
 						<div class="menu-command"><u>M</u>ove...</div>
@@ -360,8 +366,8 @@
 
 		<div class="window" id="window-program-manager-games" onmousedown="clickOnWindow(this)" tabindex="0">
 			<div class="title-bar">
-				<div class="control-menu-box" tabindex="0" ondblclick="closeWindow(this)">
-					&ndash;
+				<div class="control-menu" tabindex="0">
+					<div class="control-menu-box" ondblclick="closeWindow(this)">&ndash;</div>
 					<div class="menu-list">
 						<div class="menu-command disabled" onclick="maximizeWindow(this)"><u>R</u>estore</div>
 						<div class="menu-command"><u>M</u>ove...</div>
@@ -420,8 +426,8 @@
 
 		<div class="window" id="window-program-manager-startup" onmousedown="clickOnWindow(this)" tabindex="0">
 			<div class="title-bar">
-				<div class="control-menu-box" tabindex="0" ondblclick="closeWindow(this)">
-					&ndash;
+				<div class="control-menu" tabindex="0">
+					<div class="control-menu-box" ondblclick="closeWindow(this)">&ndash;</div>
 					<div class="menu-list">
 						<div class="menu-command disabled" onclick="maximizeWindow(this)"><u>R</u>estore</div>
 						<div class="menu-command"><u>M</u>ove...</div>
@@ -468,8 +474,8 @@
 
 		<div class="window" id="window-program-manager-applications" onmousedown="clickOnWindow(this)" tabindex="0">
 			<div class="title-bar">
-				<div class="control-menu-box" tabindex="0" ondblclick="closeWindow(this)">
-					&ndash;
+				<div class="control-menu" tabindex="0">
+					<div class="control-menu-box" ondblclick="closeWindow(this)">&ndash;</div>
 					<div class="menu-list">
 						<div class="menu-command disabled" onclick="maximizeWindow(this)"><u>R</u>estore</div>
 						<div class="menu-command"><u>M</u>ove...</div>
@@ -517,8 +523,8 @@
 
 		<div class="window-with-menu-bar" id="window-notepad" onmousedown="clickOnWindow(this)" tabindex="0">
 			<div class="title-bar">
-				<div class="control-menu-box" tabindex="0" ondblclick="closeWindow(this)">
-					&ndash;
+				<div class="control-menu" tabindex="0">
+					<div class="control-menu-box" ondblclick="closeWindow(this)">&ndash;</div>
 					<div class="menu-list">
 						<div class="menu-command disabled" onclick="maximizeWindow(this)"><u>R</u>estore</div>
 						<div class="menu-command"><u>M</u>ove...</div>
@@ -588,8 +594,8 @@
 
 		<div class="window-with-menu-bar" id="window-write" onmousedown="clickOnWindow(this)" tabindex="0">
 			<div class="title-bar">
-				<div class="control-menu-box" tabindex="0" ondblclick="closeWindow(this)">
-					&ndash;
+				<div class="control-menu" tabindex="0">
+					<div class="control-menu-box" ondblclick="closeWindow(this)">&ndash;</div>
 					<div class="menu-list">
 						<div class="menu-command disabled" onclick="maximizeWindow(this)"><u>R</u>estore</div>
 						<div class="menu-command"><u>M</u>ove...</div>
@@ -663,8 +669,8 @@ Project site: https://github.com/karol-kiersnowski/win31</textarea>
 
 		<div class="window" id="window-msdos" onmousedown="clickOnWindow(this)" tabindex="0">
 			<div class="title-bar">
-				<div class="control-menu-box" tabindex="0" ondblclick="closeWindow(this)">
-					&ndash;
+				<div class="control-menu" tabindex="0">
+					<div class="control-menu-box" ondblclick="closeWindow(this)">&ndash;</div>
 					<div class="menu-list">
 						<div class="menu-command disabled" onclick="maximizeWindow(this)"><u>R</u>estore</div>
 						<div class="menu-command"><u>M</u>ove...</div>

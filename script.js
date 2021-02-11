@@ -117,7 +117,7 @@ function showWindowExitWindows() {
 function closeWindow(caller) {
 	var thisWindow;
 	if (caller.className == "control-menu-box")
-		thisWindow = caller.parentElement.parentElement;
+		thisWindow = caller.parentElement.parentElement.parentElement;
 	else if (caller.className == "menu-command")
 		thisWindow = caller.parentElement.parentElement.parentElement.parentElement;
 	else if (caller.className == "minimize-button")
@@ -135,11 +135,11 @@ function maximizeWindow(caller) {
 
 	if (caller.getAttribute("class") == "menu-command")
 		thisWindow = caller.parentElement.parentElement.parentElement.parentElement;
-	else if (caller.getAttribute("class") == "title" || caller.getAttribute("class") == "maximize-button")
+	else if (caller.getAttribute("class") == "title" || caller.className == "maximize-button")
 		thisWindow = caller.parentElement.parentElement;
 
-	restoreCommand = thisWindow.children[0].children[0].children[0].children[0];
-	maximizeCommand = thisWindow.children[0].children[0].children[0].children[4];
+	restoreCommand = thisWindow.children[0].children[0].children[1].children[0];
+	maximizeCommand = thisWindow.children[0].children[0].children[1].children[4];
 	maximizeButton = thisWindow.children[0].children[5];
 
 	// MAXIMIZE WINDOW
@@ -167,6 +167,8 @@ function maximizeWindow(caller) {
 		maximizeButton.children[0].className = "fas fa-sort-up";
 		maximizeButton.children[0].style.verticalAlign = "bottom";
 	}
+
+	//blur();
 }
 
 function minimizeWindow() {
@@ -205,7 +207,7 @@ function clickOnWindow(thisWindow) {
 
 function setMouseDown(titleBar, mouse) {
 	for (var i=0; i<apps.length; i++) {
-		if (titleBar.parentElement.parentElement.getAttribute("id") == apps[i].window.id) {
+		if (titleBar.parentElement.parentElement.id == apps[i].window.id) {
 			apps[i].isMouseDown = true;
 			apps[i].mouseXInTitleBar = mouse.clientX - apps[i].window.offsetLeft;
 			apps[i].mouseYInTitleBar = mouse.clientY - apps[i].window.offsetTop;
@@ -215,13 +217,13 @@ function setMouseDown(titleBar, mouse) {
 
 function setMouseUp(titleBar) {
 	for (var i=0; i<apps.length; i++)
-		if (titleBar.parentElement.parentElement.getAttribute("id") == apps[i].window.id)
+		if (titleBar.parentElement.parentElement.id == apps[i].window.id)
 			apps[i].isMouseDown = false;
 }
 
 function tryMoveElement(mouse) {
 	for (var i=0; i<apps.length; i++) {
-		if (apps[i].window.children[0].children[0].children[0].children[0].getAttribute("class") == "menu-command disabled") {
+		if (apps[i].window.children[0].children[0].children[1].children[0].className == "menu-command disabled") {
 			if (apps[i].isMouseDown) {
 				apps[i].window.style.left = mouse.clientX - apps[i].mouseXInTitleBar + "px";
 				apps[i].window.style.top = mouse.clientY - apps[i].mouseYInTitleBar + "px";
