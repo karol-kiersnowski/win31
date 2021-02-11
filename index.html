@@ -10,10 +10,10 @@
 	<script defer src="script.js"></script>
 
 	<title>Windows 3.1</title>
-	<meta name="description" content="Windows 3.1 - it's just a toy"/>
+	<meta name="description" content="Windows 3.1 Simulator - it's just a toy"/>
 	<meta name="keywords" content="Windows, Win, Windows 3.1, Windows31, Win 3.1, Win3.1, Win31, simulator"/>
 </head>
-<body onload="init()">
+<body onfocus="init()">
 
 	<div id="start-screen" onclick="startWindowsSession()">
 		<img src="img/start-screen.png"/>
@@ -36,7 +36,7 @@
 
 		<div class="window" id="window-exit-windows" tabindex="0">
 			<div class="title-bar">
-				<div class="options-button">&ndash;</div>
+				<div class="control-menu-box" ondblclick="closeWindow(parentElement.parentElement)">&ndash;</div>
 				<div class="title">Exit Windows</div>
 			</div>
 			<div class="window-content" style="padding: 10px;">
@@ -66,21 +66,22 @@
 
 		<div class="window-with-menu-bar" id="window-program-manager" onmousedown="clickOnWindow(this)" tabindex="0">
 			<div class="title-bar">
-				<div class="options-button" tabindex="0">
+				<div class="control-menu-box" tabindex="0" ondblclick="showWindowExitWindows()">
 					&ndash;
 					<div class="menu-list">
-						<div class="menu-element disabled"><u>R</u>estore</div>
-						<div class="menu-element"><u>M</u>ove...</div>
-						<div class="menu-element"><u>S</u>ize</div>
-						<div class="menu-element">Mi<u>n</u>imize</div>
-						<div class="menu-element">Ma<u>x</u>imize</div>
+						<div class="menu-command disabled"><u>R</u>estore</div>
+						<div class="menu-command"><u>M</u>ove...</div>
+						<div class="menu-command"><u>S</u>ize</div>
+						<div class="menu-command">Mi<u>n</u>imize</div>
+						<div class="menu-command">Ma<u>x</u>imize</div>
 						<hr>
-						<div class="menu-element" onclick="showWindowExitWindows()"><u>C</u>lose</div>
+						<div class="menu-command" onclick="showWindowExitWindows()"><u>C</u>lose</div>
 						<hr>
-						<div class="menu-element">S<u>w</u>itch to...</div>
+						<div class="menu-command">S<u>w</u>itch to...</div>
 					</div>
 				</div>
 				<div class="title"
+					ondblclick="maximizeWindow(this);" 
 					onmousedown="setMouseDown(this, event)"
 					onmouseup="setMouseUp(this)">
 					Program Manager
@@ -95,71 +96,71 @@
 				</div>
 			</div>
 			<div class="menu-bar">
-				<div class="menu-option" tabindex="0">
+				<div class="menu-name" tabindex="0">
 					<u>F</u>ile
 					<div class="menu-list">
-						<div class="menu-element"><u>N</u>ew</div>
-						<div class="menu-element"><u>O</u>pen...</div>
-						<div class="menu-element"><u>M</u>ove</div>
-						<div class="menu-element"><u>C</u>opy</div>
-						<div class="menu-element"><u>D</u>elete</div>
-						<div class="menu-element"><u>P</u>roperties...</div>
+						<div class="menu-command"><u>N</u>ew</div>
+						<div class="menu-command"><u>O</u>pen...</div>
+						<div class="menu-command"><u>M</u>ove</div>
+						<div class="menu-command"><u>C</u>opy</div>
+						<div class="menu-command"><u>D</u>elete</div>
+						<div class="menu-command"><u>P</u>roperties...</div>
 						<hr>
-						<div class="menu-element"><u>R</u>un...</div>
+						<div class="menu-command"><u>R</u>un...</div>
 						<hr>
-						<div class="menu-element" onclick="showWindowExitWindows()">E<u>x</u>it Windows...</div>
+						<div class="menu-command" onclick="showWindowExitWindows()">E<u>x</u>it Windows...</div>
 					</div>
-				</div><div class="menu-option" tabindex="0">
+				</div><div class="menu-name" tabindex="0">
 					<u>O</u>ptions
 					<div class="menu-list">
-						<div class="menu-element"><u>A</u>uto Arrange</div>
-						<div class="menu-element"><u>M</u>inimize on Use</div>
-						<div class="menu-element"><u>S</u>ave Settings on Exit</div>
+						<div class="menu-command"><u>A</u>uto Arrange</div>
+						<div class="menu-command"><u>M</u>inimize on Use</div>
+						<div class="menu-command"><u>S</u>ave Settings on Exit</div>
 					</div>
-				</div><div class="menu-option" tabindex="0">
+				</div><div class="menu-name" tabindex="0">
 					<u>W</u>indow
 					<div class="menu-list">
-						<div class="menu-element"><u>C</u>ascade</div>
-						<div class="menu-element"><u>T</u>ile</div>
-						<div class="menu-element"><u>A</u>rrange Icons</div>
+						<div class="menu-command"><u>C</u>ascade</div>
+						<div class="menu-command"><u>T</u>ile</div>
+						<div class="menu-command"><u>A</u>rrange Icons</div>
 						<hr>
-						<div class="menu-element"><u>1</u> Games</div>
-						<div class="menu-element"><u>2</u> StartUp</div>
-						<div class="menu-element"><u>3</u> Applications</div>
-						<div class="menu-element"><u>4</u> Main</div>
-						<div class="menu-element"><u>5</u> Accessories</div>
+						<div class="menu-command"><u>1</u> Games</div>
+						<div class="menu-command"><u>2</u> StartUp</div>
+						<div class="menu-command"><u>3</u> Applications</div>
+						<div class="menu-command"><u>4</u> Main</div>
+						<div class="menu-command"><u>5</u> Accessories</div>
 					</div>
-				</div><div class="menu-option" tabindex="0">
+				</div><div class="menu-name" tabindex="0">
 					<u>H</u>elp
 					<div class="menu-list">
-						<div class="menu-element"><u>C</u>ontents</div>
-						<div class="menu-element"><u>S</u>earch for Help on...</div>
+						<div class="menu-command"><u>C</u>ontents</div>
+						<div class="menu-command"><u>S</u>earch for Help on...</div>
 						<hr>
-						<div class="menu-element"><u>H</u>ow to Use Help</div>
-						<div class="menu-element"><u>W</u>indows Tutorial</div>
+						<div class="menu-command"><u>H</u>ow to Use Help</div>
+						<div class="menu-command"><u>W</u>indows Tutorial</div>
 						<hr>
-						<div class="menu-element"><u>A</u>bout Program Manager...</div>
+						<div class="menu-command"><u>A</u>bout Program Manager...</div>
 					</div>
 				</div>
 			</div>
 			<div class="window-content" style="padding-top: 200px;">
-				<div class="icon" id="icon-msdos" tabindex="0" ondblclick="runApp(programManagerAccessories)">
+				<div class="icon" id="icon-msdos" tabindex="0" draggable="true" ondblclick="runApp(programManagerAccessories)">
 					<img src="img/group.png"/>
 					<div class="icon-caption">Accessories</div>
 				</div>
-				<div class="icon" id="icon-msdos" tabindex="0" ondblclick="runApp(programManagerGames)">
+				<div class="icon" id="icon-msdos" tabindex="0" draggable="true" ondblclick="runApp(programManagerGames)">
 					<img src="img/group.png"/>
 					<div class="icon-caption">Games</div>
 				</div>
-				<div class="icon" id="icon-msdos" tabindex="0" ondblclick="runApp(programManagerStartup)">
+				<div class="icon" id="icon-msdos" tabindex="0" draggable="true" ondblclick="runApp(programManagerStartup)">
 					<img src="img/group.png"/>
 					<div class="icon-caption">StartUp</div>
 				</div>
-				<div class="icon" id="icon-msdos" tabindex="0" ondblclick="runApp(programManagerApplications)">
+				<div class="icon" id="icon-msdos" tabindex="0" draggable="true" ondblclick="runApp(programManagerApplications)">
 					<img src="img/group.png"/>
 					<div class="icon-caption">Applications</div>
 				</div>
-				<div class="icon" id="icon-msdos" tabindex="0" ondblclick="runApp(programManagerMain)">
+				<div class="icon" id="icon-msdos" tabindex="0" draggable="true" ondblclick="runApp(programManagerMain)">
 					<img src="img/group.png"/>
 					<div class="icon-caption">Main</div>
 				</div>
@@ -179,18 +180,18 @@
 
 		<div class="window" id="window-program-manager-main" onmousedown="clickOnWindow(this)" tabindex="0">
 			<div class="title-bar">
-				<div class="options-button" tabindex="0">
+				<div class="control-menu-box" tabindex="0" ondblclick="closeWindow(parentElement.parentElement)">
 					&ndash;
 					<div class="menu-list">
-						<div class="menu-element disabled"><u>R</u>estore</div>
-						<div class="menu-element"><u>M</u>ove...</div>
-						<div class="menu-element"><u>S</u>ize</div>
-						<div class="menu-element">Mi<u>n</u>imize</div>
-						<div class="menu-element">Ma<u>x</u>imize</div>
+						<div class="menu-command disabled"><u>R</u>estore</div>
+						<div class="menu-command"><u>M</u>ove...</div>
+						<div class="menu-command"><u>S</u>ize</div>
+						<div class="menu-command">Mi<u>n</u>imize</div>
+						<div class="menu-command">Ma<u>x</u>imize</div>
 						<hr>
-						<div class="menu-element" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)"><u>C</u>lose</div>
+						<div class="menu-command" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)"><u>C</u>lose</div>
 						<hr>
-						<div class="menu-element">S<u>w</u>itch to...</div>
+						<div class="menu-command">S<u>w</u>itch to...</div>
 					</div>
 				</div>
 				<div class="title"
@@ -208,35 +209,35 @@
 				</div>
 			</div>
 			<div class="window-content">
-				<div class="icon" id="icon-msdos" tabindex="0">
+				<div class="icon" id="icon-msdos" tabindex="0" draggable="true">
 					<img src="img/main/file-manager.png"/>
 					<div class="icon-caption">File Manager</div>
 				</div>
-				<div class="icon" id="icon-msdos" tabindex="0">
+				<div class="icon" id="icon-msdos" tabindex="0" draggable="true">
 					<img src="img/main/control-panel.png"/>
 					<div class="icon-caption">Control Panel</div>
 				</div>
-				<div class="icon" id="icon-msdos" tabindex="0">
+				<div class="icon" id="icon-msdos" tabindex="0" draggable="true">
 					<img src="img/main/print-manager.png"/>
 					<div class="icon-caption">Print Manager</div>
 				</div>
-				<div class="icon" id="icon-msdos" tabindex="0">
+				<div class="icon" id="icon-msdos" tabindex="0" draggable="true">
 					<img src="img/main/clipbook-viewer.png"/>
 					<div class="icon-caption">ClipBook<br>Viewer</div>
 				</div>
-				<div class="icon" id="icon-msdos" tabindex="0" ondblclick="runApp(msdos)">
+				<div class="icon" id="icon-msdos" tabindex="0" draggable="true" ondblclick="runApp(msdos)">
 					<img src="img/main/ms-dos.png"/>
 					<div class="icon-caption">MS-DOS<br>Prompt</div>
 				</div>
-				<div class="icon" id="icon-msdos" tabindex="0">
+				<div class="icon" id="icon-msdos" tabindex="0" draggable="true">
 					<img src="img/main/windows-setup.png"/>
 					<div class="icon-caption">Windows<br>Setup</div>
 				</div>
-				<div class="icon" id="icon-msdos" tabindex="0">
+				<div class="icon" id="icon-msdos" tabindex="0" draggable="true">
 					<img src="img/main/pif-editor.png"/>
 					<div class="icon-caption">PIF Editor</div>
 				</div>
-				<div class="icon" id="icon-write" tabindex="0" ondblclick="runApp(writeApp)">
+				<div class="icon" id="icon-write" tabindex="0" draggable="true" ondblclick="runApp(writeApp)">
 					<img src="img/accessories/write.png"/>
 					<div class="icon-caption">Read Me</div>
 				</div>	
@@ -256,18 +257,18 @@
 
 		<div class="window" id="window-program-manager-accessories" onmousedown="clickOnWindow(this)" tabindex="0">
 			<div class="title-bar">
-				<div class="options-button" tabindex="0">
+				<div class="control-menu-box" tabindex="0" ondblclick="closeWindow(parentElement.parentElement)">
 					&ndash;
 					<div class="menu-list">
-						<div class="menu-element disabled"><u>R</u>estore</div>
-						<div class="menu-element"><u>M</u>ove...</div>
-						<div class="menu-element"><u>S</u>ize</div>
-						<div class="menu-element">Mi<u>n</u>imize</div>
-						<div class="menu-element">Ma<u>x</u>imize</div>
+						<div class="menu-command disabled"><u>R</u>estore</div>
+						<div class="menu-command"><u>M</u>ove...</div>
+						<div class="menu-command"><u>S</u>ize</div>
+						<div class="menu-command">Mi<u>n</u>imize</div>
+						<div class="menu-command">Ma<u>x</u>imize</div>
 						<hr>
-						<div class="menu-element" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)"><u>C</u>lose</div>
+						<div class="menu-command" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)"><u>C</u>lose</div>
 						<hr>
-						<div class="menu-element">S<u>w</u>itch to...</div>
+						<div class="menu-command">S<u>w</u>itch to...</div>
 					</div>
 				</div>
 				<div class="title"
@@ -285,8 +286,8 @@
 				</div>
 			</div>
 			<div class="window-content">
-				<div class="icon" id="icon-write" tabindex="0" ondblclick="runApp(writeApp)">
-					<img src="img/accessories/write.png"/>
+				<div class="icon" draggable="true" id="icon-write" tabindex="0" ondblclick="runApp(writeApp)">
+					<img draggable="false" src="img/accessories/write.png"/>
 					<div class="icon-caption">Write</div>
 				</div>
 				<div class="icon" id="icon-write" tabindex="0">
@@ -350,18 +351,18 @@
 
 		<div class="window" id="window-program-manager-games" onmousedown="clickOnWindow(this)" tabindex="0">
 			<div class="title-bar">
-				<div class="options-button" tabindex="0">
+				<div class="control-menu-box" tabindex="0" ondblclick="closeWindow(parentElement.parentElement)">
 					&ndash;
 					<div class="menu-list">
-						<div class="menu-element disabled"><u>R</u>estore</div>
-						<div class="menu-element"><u>M</u>ove...</div>
-						<div class="menu-element"><u>S</u>ize</div>
-						<div class="menu-element">Mi<u>n</u>imize</div>
-						<div class="menu-element">Ma<u>x</u>imize</div>
+						<div class="menu-command disabled"><u>R</u>estore</div>
+						<div class="menu-command"><u>M</u>ove...</div>
+						<div class="menu-command"><u>S</u>ize</div>
+						<div class="menu-command">Mi<u>n</u>imize</div>
+						<div class="menu-command">Ma<u>x</u>imize</div>
 						<hr>
-						<div class="menu-element" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)"><u>C</u>lose</div>
+						<div class="menu-command" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)"><u>C</u>lose</div>
 						<hr>
-						<div class="menu-element">S<u>w</u>itch to...</div>
+						<div class="menu-command">S<u>w</u>itch to...</div>
 					</div>
 				</div>
 				<div class="title"
@@ -409,18 +410,18 @@
 
 		<div class="window" id="window-program-manager-startup" onmousedown="clickOnWindow(this)" tabindex="0">
 			<div class="title-bar">
-				<div class="options-button" tabindex="0">
+				<div class="control-menu-box" tabindex="0" ondblclick="closeWindow(parentElement.parentElement)">
 					&ndash;
 					<div class="menu-list">
-						<div class="menu-element disabled"><u>R</u>estore</div>
-						<div class="menu-element"><u>M</u>ove...</div>
-						<div class="menu-element"><u>S</u>ize</div>
-						<div class="menu-element">Mi<u>n</u>imize</div>
-						<div class="menu-element">Ma<u>x</u>imize</div>
+						<div class="menu-command disabled"><u>R</u>estore</div>
+						<div class="menu-command"><u>M</u>ove...</div>
+						<div class="menu-command"><u>S</u>ize</div>
+						<div class="menu-command">Mi<u>n</u>imize</div>
+						<div class="menu-command">Ma<u>x</u>imize</div>
 						<hr>
-						<div class="menu-element" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)"><u>C</u>lose</div>
+						<div class="menu-command" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)"><u>C</u>lose</div>
 						<hr>
-						<div class="menu-element">S<u>w</u>itch to...</div>
+						<div class="menu-command">S<u>w</u>itch to...</div>
 					</div>
 				</div>
 				<div class="title"
@@ -456,18 +457,18 @@
 
 		<div class="window" id="window-program-manager-applications" onmousedown="clickOnWindow(this)" tabindex="0">
 			<div class="title-bar">
-				<div class="options-button" tabindex="0">
+				<div class="control-menu-box" tabindex="0" ondblclick="closeWindow(parentElement.parentElement)">
 					&ndash;
 					<div class="menu-list">
-						<div class="menu-element disabled"><u>R</u>estore</div>
-						<div class="menu-element"><u>M</u>ove...</div>
-						<div class="menu-element"><u>S</u>ize</div>
-						<div class="menu-element">Mi<u>n</u>imize</div>
-						<div class="menu-element">Ma<u>x</u>imize</div>
+						<div class="menu-command disabled"><u>R</u>estore</div>
+						<div class="menu-command"><u>M</u>ove...</div>
+						<div class="menu-command"><u>S</u>ize</div>
+						<div class="menu-command">Mi<u>n</u>imize</div>
+						<div class="menu-command">Ma<u>x</u>imize</div>
 						<hr>
-						<div class="menu-element" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)"><u>C</u>lose</div>
+						<div class="menu-command" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)"><u>C</u>lose</div>
 						<hr>
-						<div class="menu-element">S<u>w</u>itch to...</div>
+						<div class="menu-command">S<u>w</u>itch to...</div>
 					</div>
 				</div>
 				<div class="title"
@@ -504,18 +505,18 @@
 
 		<div class="window-with-menu-bar" id="window-notepad" onmousedown="clickOnWindow(this)" tabindex="0">
 			<div class="title-bar">
-				<div class="options-button" tabindex="0">
+				<div class="control-menu-box" tabindex="0" ondblclick="closeWindow(parentElement.parentElement)">
 					&ndash;
 					<div class="menu-list">
-						<div class="menu-element disabled"><u>R</u>estore</div>
-						<div class="menu-element"><u>M</u>ove...</div>
-						<div class="menu-element"><u>S</u>ize</div>
-						<div class="menu-element">Mi<u>n</u>imize</div>
-						<div class="menu-element">Ma<u>x</u>imize</div>
+						<div class="menu-command disabled"><u>R</u>estore</div>
+						<div class="menu-command"><u>M</u>ove...</div>
+						<div class="menu-command"><u>S</u>ize</div>
+						<div class="menu-command">Mi<u>n</u>imize</div>
+						<div class="menu-command">Ma<u>x</u>imize</div>
 						<hr>
-						<div class="menu-element" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)"><u>C</u>lose</div>
+						<div class="menu-command" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)"><u>C</u>lose</div>
 						<hr>
-						<div class="menu-element">S<u>w</u>itch to...</div>
+						<div class="menu-command">S<u>w</u>itch to...</div>
 					</div>
 				</div>
 				<div class="title"
@@ -533,22 +534,22 @@
 				</div>
 			</div>
 			<div class="menu-bar">
-				<div class="menu-option" tabindex="0">
+				<div class="menu-name" tabindex="0">
 					<u>F</u>ile
 					<div class="menu-list">
-						<div class="menu-element"><u>N</u>ew</div>
-						<div class="menu-element"><u>O</u>pen...</div>
-						<div class="menu-element"><u>S</u>ave</div>
-						<div class="menu-element">Save <u>A</u>s...</div>
-						<div class="menu-element disabled"><u>P</u>rint</div>
-						<div class="menu-element">Page Se<u>t</u>up...</div>
-						<div class="menu-element">P<u>r</u>int Setup...</div>
+						<div class="menu-command"><u>N</u>ew</div>
+						<div class="menu-command"><u>O</u>pen...</div>
+						<div class="menu-command"><u>S</u>ave</div>
+						<div class="menu-command">Save <u>A</u>s...</div>
+						<div class="menu-command disabled"><u>P</u>rint</div>
+						<div class="menu-command">Page Se<u>t</u>up...</div>
+						<div class="menu-command">P<u>r</u>int Setup...</div>
 						<hr>
-						<div class="menu-element" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)">E<u>x</u>it</div>
+						<div class="menu-command" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)">E<u>x</u>it</div>
 					</div>
-				</div><div class="menu-option" tabindex="0"><u>E</u>dit
-				</div><div class="menu-option" tabindex="0"><u>S</u>earch
-				</div><div class="menu-option" tabindex="0"><u>H</u>elp</div>
+				</div><div class="menu-name" tabindex="0"><u>E</u>dit
+				</div><div class="menu-name" tabindex="0"><u>S</u>earch
+				</div><div class="menu-name" tabindex="0"><u>H</u>elp</div>
 			</div>
 			<div class="window-content">
 				<textarea></textarea>
@@ -574,18 +575,18 @@
 
 		<div class="window-with-menu-bar" id="window-write" onmousedown="clickOnWindow(this)" tabindex="0">
 			<div class="title-bar">
-				<div class="options-button" tabindex="0">
+				<div class="control-menu-box" tabindex="0" ondblclick="closeWindow(parentElement.parentElement)">
 					&ndash;
 					<div class="menu-list">
-						<div class="menu-element disabled"><u>R</u>estore</div>
-						<div class="menu-element"><u>M</u>ove...</div>
-						<div class="menu-element"><u>S</u>ize</div>
-						<div class="menu-element">Mi<u>n</u>imize</div>
-						<div class="menu-element">Ma<u>x</u>imize</div>
+						<div class="menu-command disabled"><u>R</u>estore</div>
+						<div class="menu-command"><u>M</u>ove...</div>
+						<div class="menu-command"><u>S</u>ize</div>
+						<div class="menu-command">Mi<u>n</u>imize</div>
+						<div class="menu-command">Ma<u>x</u>imize</div>
 						<hr>
-						<div class="menu-element" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)"><u>C</u>lose</div>
+						<div class="menu-command" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)"><u>C</u>lose</div>
 						<hr>
-						<div class="menu-element">S<u>w</u>itch to...</div>
+						<div class="menu-command">S<u>w</u>itch to...</div>
 					</div>
 				</div>
 				<div class="title"
@@ -603,26 +604,26 @@
 				</div>
 			</div>
 			<div class="menu-bar">
-				<div class="menu-option" tabindex="0">
+				<div class="menu-name" tabindex="0">
 					<u>F</u>ile
 					<div class="menu-list">
-						<div class="menu-element"><u>N</u>ew</div>
-						<div class="menu-element"><u>O</u>pen...</div>
-						<div class="menu-element"><u>S</u>ave</div>
-						<div class="menu-element">Save <u>A</u>s...</div>
+						<div class="menu-command"><u>N</u>ew</div>
+						<div class="menu-command"><u>O</u>pen...</div>
+						<div class="menu-command"><u>S</u>ave</div>
+						<div class="menu-command">Save <u>A</u>s...</div>
 						<hr>
-						<div class="menu-element disabled"><u>P</u>rint...</div>
-						<div class="menu-element">P<u>r</u>int Setup...</div>
-						<div class="menu-element">R<u>e</u>paginate...</div>
+						<div class="menu-command disabled"><u>P</u>rint...</div>
+						<div class="menu-command">P<u>r</u>int Setup...</div>
+						<div class="menu-command">R<u>e</u>paginate...</div>
 						<hr>
-						<div class="menu-element" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)">E<u>x</u>it</div>
+						<div class="menu-command" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)">E<u>x</u>it</div>
 					</div>
-				</div><div class="menu-option" tabindex="0"><u>E</u>dit
-				</div><div class="menu-option" tabindex="0">Fi<u>n</u>d
-				</div><div class="menu-option" tabindex="0"><u>C</u>haracter
-				</div><div class="menu-option" tabindex="0"><u>P</u>aragraph
-				</div><div class="menu-option" tabindex="0"><u>D</u>ocument
-				</div><div class="menu-option" tabindex="0"><u>H</u>elp</div>
+				</div><div class="menu-name" tabindex="0"><u>E</u>dit
+				</div><div class="menu-name" tabindex="0">Fi<u>n</u>d
+				</div><div class="menu-name" tabindex="0"><u>C</u>haracter
+				</div><div class="menu-name" tabindex="0"><u>P</u>aragraph
+				</div><div class="menu-name" tabindex="0"><u>D</u>ocument
+				</div><div class="menu-name" tabindex="0"><u>H</u>elp</div>
 			</div>
 			<div class="window-content">
 				<textarea>Hello! This is Windows 3.1 Simulator. Project site: https://github.com/karol-kiersnowski/win31</textarea>
@@ -647,18 +648,18 @@
 
 		<div class="window" id="window-msdos" onmousedown="clickOnWindow(this)" tabindex="0">
 			<div class="title-bar">
-				<div class="options-button" tabindex="0">
+				<div class="control-menu-box" tabindex="0" ondblclick="closeWindow(parentElement.parentElement)">
 					&ndash;
 					<div class="menu-list">
-						<div class="menu-element disabled"><u>R</u>estore</div>
-						<div class="menu-element"><u>M</u>ove...</div>
-						<div class="menu-element"><u>S</u>ize</div>
-						<div class="menu-element">Mi<u>n</u>imize</div>
-						<div class="menu-element">Ma<u>x</u>imize</div>
+						<div class="menu-command disabled"><u>R</u>estore</div>
+						<div class="menu-command"><u>M</u>ove...</div>
+						<div class="menu-command"><u>S</u>ize</div>
+						<div class="menu-command">Mi<u>n</u>imize</div>
+						<div class="menu-command">Ma<u>x</u>imize</div>
 						<hr>
-						<div class="menu-element" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)"><u>C</u>lose</div>
+						<div class="menu-command" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)"><u>C</u>lose</div>
 						<hr>
-						<div class="menu-element">S<u>w</u>itch to...</div>
+						<div class="menu-command">S<u>w</u>itch to...</div>
 					</div>
 				</div>
 				<div class="title"

@@ -87,7 +87,12 @@ var writeApp = {
 
 var apps = [ programManager, programManagerMain, programManagerAccessories, programManagerGames, programManagerStartup, programManagerApplications, msdos, notepad, writeApp ];
 
-
+var fileManager = {
+    mouseX: null,
+    mouseY: null,
+    x: null,
+    y: null
+};
 
 
 
@@ -225,4 +230,23 @@ function runApp(app) {
     app.window.style.zIndex = "2";
     app.window.focus();
     clickOnWindow(app.window);
+}
+
+function dragStartIcon(icon, mouse) {
+    var parent = icon.parentElement;
+    // fileManager.mouseX = mouse.clientX - parent.offsetLeft;
+    // fileManager.mouseY = mouse.clientY - parent.offsetTop;
+    console.log("Start: " + mouse.clientX + " " + mouse.clientY);
+}
+
+function dragEndIcon(icon, mouse) {
+    var parent = icon.parentElement;
+    icon.style.position.absoloute;
+    // icon.style.left = mouse.clientX - fileManager.mouseX + "px";
+    // icon.style.top = mouse.clientY - fileManager.mouseY + "px";
+    console.log("End: " + mouse.offsetLeft + " " + mouse.clientY);
+    //console.log(x, y);
+    // icon.style.position = "absoloute";
+    // icon.style.top = icon.offsetTop + "px";
+    // icon.style.left = "20px";
 }

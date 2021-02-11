@@ -72,7 +72,7 @@ body {
 			font-weight: bold;
 		}
 
-		.options-button {
+		.control-menu-box {
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -91,12 +91,12 @@ body {
 				2px 2px 0 #868a8e;
 		}
 
-		.options-button:focus,
-		.options-button:active {
+		.control-menu-box:active,
+		.control-menu-box:focus {
 			background-color: #868a8e;
 		}
 
-			.options-button:focus .menu-list {
+			.control-menu-box:focus .menu-list {
 				display: block;
 				margin: -2px 0;
 				text-align: left;
@@ -167,13 +167,13 @@ body {
 		font-size: 14px;
 	}
 
-		.menu-option {
+		.menu-name {
 			display: inline-block;
 			padding: 0 5px;
 			/*background-color: green;*/
 		}
 
-		.menu-option:focus {
+		.menu-name:focus {
 			background-color: #00a;
 			color: #fff;
 		}
@@ -189,15 +189,15 @@ body {
 				white-space: nowrap;
 			}
 
-			.menu-option:focus .menu-list {
+			.menu-name:focus .menu-list {
 				display: block;
 			}
 
-				.menu-element {
+				.menu-command {
 					padding: 0 1em;
 				}
 
-				.menu-element:active {
+				.menu-command:active {
 					background-color: #00a;
 					color: #fff;
 				}
