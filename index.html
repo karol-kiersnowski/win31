@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8"/>
-	<link rel="icon" type="image/png" sizes="16x16" href="img/icon.png"/>
+	<link rel="icon" type="image/png" sizes="16x16" href="img/icon-16x16.png"/>
 	<link rel="icon" type="image/png" sizes="32x32" href="img/icon-32x32.png"/>
 	<link rel="icon" type="image/png" sizes="96x96" href="img/icon-96x96.png"/>
 	<link rel="stylesheet" href="style.css"/>
@@ -13,7 +13,7 @@
 	<meta name="description" content="Windows 3.1 Simulator - it's just a toy"/>
 	<meta name="keywords" content="Windows, Win, Windows 3.1, Windows31, Win 3.1, Win3.1, Win31, simulator"/>
 </head>
-<body onfocus="init()">
+<body onload="init()">
 
 	<div id="start-screen" onclick="startWindowsSession()">
 		<img src="img/start-screen.png"/>
@@ -69,11 +69,11 @@
 				<div class="control-menu-box" tabindex="0" ondblclick="showWindowExitWindows()">
 					&ndash;
 					<div class="menu-list">
-						<div class="menu-command disabled"><u>R</u>estore</div>
+						<div class="menu-command disabled" onclick="maximizeWindow(this)"><u>R</u>estore</div>
 						<div class="menu-command"><u>M</u>ove...</div>
 						<div class="menu-command"><u>S</u>ize</div>
 						<div class="menu-command">Mi<u>n</u>imize</div>
-						<div class="menu-command">Ma<u>x</u>imize</div>
+						<div class="menu-command" onclick="maximizeWindow(this)">Ma<u>x</u>imize</div>
 						<hr>
 						<div class="menu-command" onclick="showWindowExitWindows()"><u>C</u>lose</div>
 						<hr>
@@ -183,11 +183,11 @@
 				<div class="control-menu-box" tabindex="0" ondblclick="closeWindow(parentElement.parentElement)">
 					&ndash;
 					<div class="menu-list">
-						<div class="menu-command disabled"><u>R</u>estore</div>
+						<div class="menu-command disabled" onclick="maximizeWindow(this)"><u>R</u>estore</div>
 						<div class="menu-command"><u>M</u>ove...</div>
 						<div class="menu-command"><u>S</u>ize</div>
 						<div class="menu-command">Mi<u>n</u>imize</div>
-						<div class="menu-command">Ma<u>x</u>imize</div>
+						<div class="menu-command" onclick="maximizeWindow(this)">Ma<u>x</u>imize</div>
 						<hr>
 						<div class="menu-command" onclick="closeWindow(parentElement.parentElement.parentElement.parentElement)"><u>C</u>lose</div>
 						<hr>
@@ -195,6 +195,7 @@
 					</div>
 				</div>
 				<div class="title"
+					ondblclick="maximizeWindow(this)"
 					onmousedown="setMouseDown(this, event)"
 					onmouseup="setMouseUp(this)">
 					Main
