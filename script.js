@@ -5,93 +5,75 @@ var startMenu = document.getElementById("start-menu");
 var windowExitWindows = document.getElementById("window-exit-windows");
 
 var programManager = {
-    window: document.getElementById("window-program-manager"),
-    isMinimized: false,
-    isMaximized: false,
-    isMouseDown: false,
-    mouseXInTitleBar: null,
-    mouseYInTitleBar: null
+	window: document.getElementById("window-program-manager"),
+	isMouseDown: false,
+	mouseXInTitleBar: null,
+	mouseYInTitleBar: null
 };
 
 var programManagerMain = {
-    window: document.getElementById("window-program-manager-main"),
-    isMinimized: false,
-    isMaximized: false,
-    isMouseDown: false,
-    mouseXInTitleBar: null,
-    mouseYInTitleBar: null
+	window: document.getElementById("window-program-manager-main"),
+	isMouseDown: false,
+	mouseXInTitleBar: null,
+	mouseYInTitleBar: null
 };
 
 var programManagerAccessories = {
-    window: document.getElementById("window-program-manager-accessories"),
-    isMinimized: false,
-    isMaximized: false,
-    isMouseDown: false,
-    mouseXInTitleBar: null,
-    mouseYInTitleBar: null
+	window: document.getElementById("window-program-manager-accessories"),
+	isMouseDown: false,
+	mouseXInTitleBar: null,
+	mouseYInTitleBar: null
 };
 
 var programManagerGames = {
-    window: document.getElementById("window-program-manager-games"),
-    isMinimized: false,
-    isMaximized: false,
-    isMouseDown: false,
-    mouseXInTitleBar: null,
-    mouseYInTitleBar: null
+	window: document.getElementById("window-program-manager-games"),
+	isMouseDown: false,
+	mouseXInTitleBar: null,
+	mouseYInTitleBar: null
 };
 
 var programManagerStartup = {
-    window: document.getElementById("window-program-manager-startup"),
-    isMinimized: false,
-    isMaximized: false,
-    isMouseDown: false,
-    mouseXInTitleBar: null,
-    mouseYInTitleBar: null
+	window: document.getElementById("window-program-manager-startup"),
+	isMouseDown: false,
+	mouseXInTitleBar: null,
+	mouseYInTitleBar: null
 };
 
 var programManagerApplications = {
-    window: document.getElementById("window-program-manager-applications"),
-    isMinimized: false,
-    isMaximized: false,
-    isMouseDown: false,
-    mouseXInTitleBar: null,
-    mouseYInTitleBar: null
+	window: document.getElementById("window-program-manager-applications"),
+	isMouseDown: false,
+	mouseXInTitleBar: null,
+	mouseYInTitleBar: null
 };
 
 var msdos = {
-    window: document.getElementById("window-msdos"),
-    isMinimized: false,
-    isMaximized: false,
-    isMouseDown: false,
-    mouseXInTitleBar: null,
-    mouseYInTitleBar: null
+	window: document.getElementById("window-msdos"),
+	isMouseDown: false,
+	mouseXInTitleBar: null,
+	mouseYInTitleBar: null
 };
 
 var notepad = {
-    window: document.getElementById("window-notepad"),
-    isMinimized: false,
-    isMaximized: false,
-    isMouseDown: false,
-    mouseXInTitleBar: null,
-    mouseYInTitleBar: null
+	window: document.getElementById("window-notepad"),
+	isMouseDown: false,
+	mouseXInTitleBar: null,
+	mouseYInTitleBar: null
 };
 
 var writeApp = {
-    window: document.getElementById("window-write"),
-    isMinimized: false,
-    isMaximized: false,
-    isMouseDown: false,
-    mouseXInTitleBar: null,
-    mouseYInTitleBar: null
+	window: document.getElementById("window-write"),
+	isMouseDown: false,
+	mouseXInTitleBar: null,
+	mouseYInTitleBar: null
 };
 
 var apps = [ programManager, programManagerMain, programManagerAccessories, programManagerGames, programManagerStartup, programManagerApplications, msdos, notepad, writeApp ];
 
 var fileManager = {
-    mouseX: null,
-    mouseY: null,
-    x: null,
-    y: null
+	mouseX: null,
+	mouseY: null,
+	x: null,
+	y: null
 };
 
 
@@ -106,34 +88,43 @@ var fileManager = {
 
 
 function init() {
-    programManagerMain.window.focus();
-    setTimeout(function() {
-        startScreen.style.display = "none";
-    }, 2000);
+	programManagerMain.window.focus();
+	setTimeout(function() {
+		startScreen.style.display = "none";
+	}, 2000);
 }
 
 function startWindowsSession() {
-    programManagerMain.window.focus();
-    var audio = new Audio("audio/TADA.WAV");
-    audio.play();
-    startScreen.style.display = "none";
+	programManagerMain.window.focus();
+	var audio = new Audio("audio/TADA.WAV");
+	audio.play();
+	startScreen.style.display = "none";
 }
 
 function exitWindowsSession() {
-    var audio = new Audio("audio/CHIMES.WAV");
-    audio.play();
-    setTimeout(function() {
-        window.close();
-    },1000);
+	var audio = new Audio("audio/CHIMES.WAV");
+	audio.play();
+	setTimeout(function() {
+		window.close();
+	},1000);
 }
 
 function showWindowExitWindows() {
-    windowExitWindows.style.display = "block";
-    document.getElementById("button-ok").focus();
+	windowExitWindows.style.display = "block";
+	document.getElementById("button-ok").focus();
 }
 
-function closeWindow(thisWindow) {
-    thisWindow.style.display = "none";
+function closeWindow(caller) {
+	var thisWindow;
+	if (caller.className == "control-menu-box")
+		thisWindow = caller.parentElement.parentElement;
+	else if (caller.className == "menu-command")
+		thisWindow = caller.parentElement.parentElement.parentElement.parentElement;
+	else if (caller.className == "minimize-button")
+		thisWindow = caller.parentElement.parentElement;
+	else if (caller.tagName == "BUTTON")
+		thisWindow = caller.parentElement.parentElement;
+	thisWindow.style.display = "none";
 }
 
 function maximizeWindow(caller) {
@@ -152,7 +143,7 @@ function maximizeWindow(caller) {
 	maximizeButton = thisWindow.children[0].children[5];
 
 	// MAXIMIZE WINDOW
-	if (restoreCommand.getAttribute("class") == "menu-command disabled") {
+	if (restoreCommand.className == "menu-command disabled") {
 		thisWindow.style.top = "0px";
 		thisWindow.style.left = "0px";
 		thisWindow.style.width = "100%";
@@ -164,7 +155,7 @@ function maximizeWindow(caller) {
 		maximizeButton.children[0].className = "fas fa-sort";
 		maximizeButton.children[0].style.verticalAlign = "middle";
 	} // RESTORE WINDOW
-	else if (restoreCommand.getAttribute("class") == "menu-command") {
+	else if (restoreCommand.className == "menu-command") {
 		thisWindow.style.top = "";
 		thisWindow.style.left = "";
 		thisWindow.style.width = "";
@@ -178,72 +169,89 @@ function maximizeWindow(caller) {
 	}
 }
 
-function switchScreenMode() {
-    if (!isFullscreen) {
-        document.documentElement.requestFullscreen();
-        isFullscreen = true;
-    }
-    else {
-        document.exitFullscreen();
-        isFullscreen = false;
-    }
+function minimizeWindow() {
+
+}
+
+function restoreWindowToDesktop() {
+
+}
+
+function switchScreenMode(caller) {
+	var iconButton = caller.children[0];
+	var iconText = caller.children[0].children[0];
+	//alert(icon.className);
+	if (!isFullscreen) {
+		document.documentElement.requestFullscreen();
+		isFullscreen = true;
+		iconButton.style.border = "2px inset";
+		iconButton.style.textShadow = "1px 1px #fff";
+		iconText.className = "fa fa-compress";
+	}
+	else {
+		document.exitFullscreen();
+		isFullscreen = false;
+		iconButton.style.border = "2px outset";
+		iconButton.style.textShadow = "-1px -1px #fff";
+		iconText.className = "fa fa-expand";
+	}
 }
 
 function clickOnWindow(thisWindow) {
-    for (var i=0; i<apps.length; i++)
-        if (thisWindow.getAttribute("id") == apps[i].window.id)
-            apps[i].window.style.zIndex = (Math.max(apps[0].window.style.zIndex, apps[1].window.style.zIndex, apps[2].window.style.zIndex))+ 1;
+	for (var i=0; i<apps.length; i++)
+		if (thisWindow.getAttribute("id") == apps[i].window.id)
+			apps[i].window.style.zIndex = (Math.max(apps[0].window.style.zIndex, apps[1].window.style.zIndex, apps[2].window.style.zIndex))+ 1;
 }
 
 function setMouseDown(titleBar, mouse) {
-    for (var i=0; i<apps.length; i++) {
-        if (titleBar.parentElement.parentElement.getAttribute("id") == apps[i].window.id) {
-            apps[i].isMouseDown = true;
-            apps[i].mouseXInTitleBar = mouse.clientX - apps[i].window.offsetLeft;
-            apps[i].mouseYInTitleBar = mouse.clientY - apps[i].window.offsetTop;
-        }
-    }
+	for (var i=0; i<apps.length; i++) {
+		if (titleBar.parentElement.parentElement.getAttribute("id") == apps[i].window.id) {
+			apps[i].isMouseDown = true;
+			apps[i].mouseXInTitleBar = mouse.clientX - apps[i].window.offsetLeft;
+			apps[i].mouseYInTitleBar = mouse.clientY - apps[i].window.offsetTop;
+		}
+	}
 }
 
 function setMouseUp(titleBar) {
-    for (var i=0; i<apps.length; i++)
-        if (titleBar.parentElement.parentElement.getAttribute("id") == apps[i].window.id)
-            apps[i].isMouseDown = false;
+	for (var i=0; i<apps.length; i++)
+		if (titleBar.parentElement.parentElement.getAttribute("id") == apps[i].window.id)
+			apps[i].isMouseDown = false;
 }
 
 function tryMoveElement(mouse) {
-    for (var i=0; i<apps.length; i++) {
-    	if (apps[i].window.children[0].children[0].children[0].children[0].getAttribute("class") == "menu-command disabled") {
-	        if (apps[i].isMouseDown) {
-	            apps[i].window.style.left = mouse.clientX - apps[i].mouseXInTitleBar + "px";
-	            apps[i].window.style.top = mouse.clientY - apps[i].mouseYInTitleBar + "px";
-	        }
-	    }
-    }
+	for (var i=0; i<apps.length; i++) {
+		if (apps[i].window.children[0].children[0].children[0].children[0].getAttribute("class") == "menu-command disabled") {
+			if (apps[i].isMouseDown) {
+				apps[i].window.style.left = mouse.clientX - apps[i].mouseXInTitleBar + "px";
+				apps[i].window.style.top = mouse.clientY - apps[i].mouseYInTitleBar + "px";
+			}
+		}
+	}
 }
 
 function runApp(app) {
-    app.window.style.display = "block";
-    app.window.style.zIndex = "2";
-    app.window.focus();
-    clickOnWindow(app.window);
+	app.window.style.display = "block";
+	app.window.style.zIndex = "2";
+	app.window.focus();
+	clickOnWindow(app.window);
 }
 
 function dragStartIcon(icon, mouse) {
-    var parent = icon.parentElement;
-    // fileManager.mouseX = mouse.clientX - parent.offsetLeft;
-    // fileManager.mouseY = mouse.clientY - parent.offsetTop;
-    console.log("Start: " + mouse.clientX + " " + mouse.clientY);
+	var parent = icon.parentElement;
+	// fileManager.mouseX = mouse.clientX - parent.offsetLeft;
+	// fileManager.mouseY = mouse.clientY - parent.offsetTop;
+	console.log("Start: " + mouse.clientX + " " + mouse.clientY);
 }
 
 function dragEndIcon(icon, mouse) {
-    var parent = icon.parentElement;
-    icon.style.position.absoloute;
-    // icon.style.left = mouse.clientX - fileManager.mouseX + "px";
-    // icon.style.top = mouse.clientY - fileManager.mouseY + "px";
-    console.log("End: " + mouse.offsetLeft + " " + mouse.clientY);
-    //console.log(x, y);
-    // icon.style.position = "absoloute";
-    // icon.style.top = icon.offsetTop + "px";
-    // icon.style.left = "20px";
+	var parent = icon.parentElement;
+	icon.style.position.absoloute;
+	// icon.style.left = mouse.clientX - fileManager.mouseX + "px";
+	// icon.style.top = mouse.clientY - fileManager.mouseY + "px";
+	console.log("End: " + mouse.offsetLeft + " " + mouse.clientY);
+	//console.log(x, y);
+	// icon.style.position = "absoloute";
+	// icon.style.top = icon.offsetTop + "px";
+	// icon.style.left = "20px";
 }

@@ -41,11 +41,34 @@ body {
 	background-color: #c3c7cb;
 }
 
+	#icon-fullscreen {
+		position: absolute;
+		bottom: 10px;
+		left: 10px;
+	}
+
+		#icon-fullscreen .icon-button {
+			margin-left: auto;
+			margin-right: auto;
+			width: 32px;
+			height: 32px;
+			border: 2px outset;
+			box-shadow: 1px 0px #000, 0px 1px #000, -1px 0px #000, 0px -1px #000;
+			font-size: 22px;
+			text-shadow: -1px -1px #fff;
+		}
+
+		#icon-fullscreen .icon-caption {
+			margin: 2px 0;
+		}
+
 .window,
 .window-with-menu-bar {
 	position: absolute;
 	z-index: 1;
-	/*resize: both;
+	/*min-width: 200px;
+	min-height: 100px;
+	resize: both;
 	overflow: auto;*/
 	border: 4px double #000;
 	background-color: #c3c7cb;
@@ -206,6 +229,7 @@ body {
 		position: relative;
 		width: 100%;
 		background-color: #fff;
+		//overflow: auto;
 	}
 
 	.window-with-menu-bar .window-content {
@@ -314,12 +338,17 @@ body {
 	z-index: 999;
 	top: calc(50% - 60px);
 	left: calc(50% - 150px);
-	background-color: #00a;
 	border: 3px solid #00a;
+	background-color: #00a;
 	text-align: center;
 }
 
-	#window-exit-windows .title-bar,
+	#window-exit-windows .title-bar {
+		border: 1px solid #fff;
+		background-color: #00a;
+		color: #fff;
+	}
+
 	#window-exit-windows .window-content {
 		border: 1px solid #fff;
 	}
