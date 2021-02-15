@@ -6,6 +6,11 @@ var windowExitWindows = document.getElementById("window-exit-windows");
 
 var programManager = {
 	window: document.getElementById("window-program-manager"),
+	isMaximized: false,
+	x: null,
+	y: null,
+	width: null,
+	height: null,
 	isMouseDown: false,
 	mouseXInTitleBar: null,
 	mouseYInTitleBar: null
@@ -13,6 +18,11 @@ var programManager = {
 
 var programManagerMain = {
 	window: document.getElementById("window-program-manager-main"),
+	isMaximized: false,
+	x: null,
+	y: null,
+	width: null,
+	height: null,
 	isMouseDown: false,
 	mouseXInTitleBar: null,
 	mouseYInTitleBar: null
@@ -20,6 +30,11 @@ var programManagerMain = {
 
 var programManagerAccessories = {
 	window: document.getElementById("window-program-manager-accessories"),
+	isMaximized: false,
+	x: null,
+	y: null,
+	width: null,
+	height: null,
 	isMouseDown: false,
 	mouseXInTitleBar: null,
 	mouseYInTitleBar: null
@@ -27,6 +42,11 @@ var programManagerAccessories = {
 
 var programManagerGames = {
 	window: document.getElementById("window-program-manager-games"),
+	isMaximized: false,
+	x: null,
+	y: null,
+	width: null,
+	height: null,
 	isMouseDown: false,
 	mouseXInTitleBar: null,
 	mouseYInTitleBar: null
@@ -34,6 +54,11 @@ var programManagerGames = {
 
 var programManagerStartup = {
 	window: document.getElementById("window-program-manager-startup"),
+	isMaximized: false,
+	x: null,
+	y: null,
+	width: null,
+	height: null,
 	isMouseDown: false,
 	mouseXInTitleBar: null,
 	mouseYInTitleBar: null
@@ -41,6 +66,11 @@ var programManagerStartup = {
 
 var programManagerApplications = {
 	window: document.getElementById("window-program-manager-applications"),
+	isMaximized: false,
+	x: null,
+	y: null,
+	width: null,
+	height: null,
 	isMouseDown: false,
 	mouseXInTitleBar: null,
 	mouseYInTitleBar: null
@@ -48,6 +78,11 @@ var programManagerApplications = {
 
 var msdos = {
 	window: document.getElementById("window-msdos"),
+	isMaximized: false,
+	x: null,
+	y: null,
+	width: null,
+	height: null,
 	isMouseDown: false,
 	mouseXInTitleBar: null,
 	mouseYInTitleBar: null
@@ -55,6 +90,11 @@ var msdos = {
 
 var notepad = {
 	window: document.getElementById("window-notepad"),
+	isMaximized: false,
+	x: null,
+	y: null,
+	width: null,
+	height: null,
 	isMouseDown: false,
 	mouseXInTitleBar: null,
 	mouseYInTitleBar: null
@@ -62,6 +102,11 @@ var notepad = {
 
 var writeApp = {
 	window: document.getElementById("window-write"),
+	isMaximized: false,
+	x: null,
+	y: null,
+	width: null,
+	height: null,
 	isMouseDown: false,
 	mouseXInTitleBar: null,
 	mouseYInTitleBar: null
@@ -128,15 +173,22 @@ function closeWindow(caller) {
 }
 
 function maximizeWindow(caller) {
+	var thisApp;		
 	var thisWindow;
 	var restoreCommand;
 	var maximizeCommand;
 	var maximizeButton;
 
-	if (caller.getAttribute("class") == "menu-command")
+	if (caller.className == "menu-command")
 		thisWindow = caller.parentElement.parentElement.parentElement.parentElement;
-	else if (caller.getAttribute("class") == "title" || caller.className == "maximize-button")
+	else if (caller.className == "title" || caller.className == "maximize-button")
 		thisWindow = caller.parentElement.parentElement;
+
+	for (var i=0; i<apps.length; i++)
+		if (thisWindow.id == apps[i].window.id) {
+			console.log("yeah");
+			thisApp = apps[i];
+		}
 
 	restoreCommand = thisWindow.children[0].children[0].children[1].children[0];
 	maximizeCommand = thisWindow.children[0].children[0].children[1].children[4];
@@ -144,6 +196,11 @@ function maximizeWindow(caller) {
 
 	// MAXIMIZE WINDOW
 	if (restoreCommand.className == "menu-command disabled") {
+		thisApp.x = thisWindow.offsetLeft;
+		thisApp.y = thisWindow.offsetTop;
+		thisApp.width = thisWindow.offsetWidth;
+		thisApp.height = thisWindow.offsetHeight;
+		console.log(thisApp.width);
 		thisWindow.style.top = "0px";
 		thisWindow.style.left = "0px";
 		thisWindow.style.width = "100%";
@@ -156,10 +213,10 @@ function maximizeWindow(caller) {
 		maximizeButton.children[0].style.verticalAlign = "middle";
 	} // RESTORE WINDOW
 	else if (restoreCommand.className == "menu-command") {
-		thisWindow.style.top = "";
-		thisWindow.style.left = "";
-		thisWindow.style.width = "";
-		thisWindow.style.height = "";
+		thisWindow.style.top = thisApp.y + "px";
+		thisWindow.style.left = thisApp.x + "px";
+		thisWindow.style.width = thisApp.width + "px";
+		thisWindow.style.height = thisApp.height + "px";
 		thisWindow.style.border = "";
 
 		restoreCommand.className = "menu-command disabled";

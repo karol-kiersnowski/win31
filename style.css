@@ -66,10 +66,10 @@ body {
 .window-with-menu-bar {
 	position: absolute;
 	z-index: 1;
-	/*min-width: 200px;
+	min-width: 200px;
 	min-height: 100px;
 	resize: both;
-	overflow: auto;*/
+	overflow: hidden;
 	border: 4px double #000;
 	background-color: #c3c7cb;
 	font-weight: bold;
@@ -234,49 +234,66 @@ body {
 		position: relative;
 		width: 100%;
 		background-color: #fff;
-		//overflow: auto;
+		overflow: auto;
+		scrollbar-width: thin;
 	}
 
 	.window-with-menu-bar .window-content {
 		//padding: 5px;
 		height: calc(100% - 42px);
+		overflow: auto;
 		font-weight: normal;
 	}
 
 	.window .window-content {
 		height: calc(100% - 22px);
+		overflow: auto;
 		font-weight: normal;
 	}
 
-		.icon {
-			display: inline-block;
-			position: relative;
-			margin: 2px 2px;
-			width: 64px;
-			text-align: center;
+		.window-content textarea {
+			box-sizing: content-box;
+			width: calc(100% - 5px);
+			height: calc(100% - 5px);
+			resize: none;
+			user-select: text;
+			cursor: text;
 		}
 
-			.icon img {
-				display: block;
-				margin-bottom: 2px;
-				margin-left: auto;
-				margin-right: auto;
-			}
+		.window-content .icon-container {
+			position: relative;
+			top: 200px;
+		}
 
-			.icon-caption {
+			.icon {
 				display: inline-block;
-				margin: 0;
-				padding: 0px 2px;
-				font-size: 12px;
-				line-height: 14px;
-				white-space: nowrap;
-				vertical-align: top;
+				position: relative;
+				margin: 2px 2px;
+				width: 64px;
+				text-align: center;
 			}
 
-			.icon:focus .icon-caption {
-				background-color: #00a;
-				color: #fff;
-			}
+				.icon img {
+					display: block;
+					margin-bottom: 2px;
+					margin-left: auto;
+					margin-right: auto;
+				}
+
+				.icon-caption {
+					display: inline-block;
+					margin: 0;
+					padding: 0px 2px;
+					font-size: 12px;
+					line-height: 14px;
+					white-space: nowrap;
+					vertical-align: top;
+				}
+
+				.icon:focus .icon-caption {
+					background-color: #00a;
+					color: #fff;
+				}
 
 		button {
 			margin: 10px 20px;
@@ -459,12 +476,6 @@ body {
 	height: 350px;*/
 }
 
-	#window-notepad textarea {
-		user-select: text;
-		cursor: text;
-		/*caret-style: block;*/
-	}
-
 #window-write {
 	display: none;
 	top: calc(50% - 240px);
@@ -474,10 +485,3 @@ body {
 	height: 480px;
 	width: 640px;
 }
-
-	#window-write textarea {
-		height: 428px;
-		width: 632px;
-		user-select: text;
-		cursor: text;
-	}
