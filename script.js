@@ -168,7 +168,7 @@ function maximizeWindow(caller) {
 		maximizeButton.children[0].style.verticalAlign = "bottom";
 	}
 
-	//blur();
+	thisWindow.focus();
 }
 
 function minimizeWindow() {
@@ -248,12 +248,23 @@ function dragStartIcon(icon, mouse) {
 
 function dragEndIcon(icon, mouse) {
 	var parent = icon.parentElement;
-	icon.style.position.absoloute;
+	icon.style.position.absolute;
 	// icon.style.left = mouse.clientX - fileManager.mouseX + "px";
 	// icon.style.top = mouse.clientY - fileManager.mouseY + "px";
 	console.log("End: " + mouse.offsetLeft + " " + mouse.clientY);
 	//console.log(x, y);
-	// icon.style.position = "absoloute";
+	// icon.style.position = "absolute";
 	// icon.style.top = icon.offsetTop + "px";
 	// icon.style.left = "20px";
+}
+
+function dragstart(icon, evt) {
+    evt = evt || window.event;
+    var x = evt.pageX,
+        y = evt.pageY;
+
+    console.log(x, y);
+    icon.style.position = "absolute";
+    icon.style.top = y + "px";
+    icon.style.left = x + "px";
 }
