@@ -228,11 +228,15 @@ function maximizeWindow(caller) {
 	thisWindow.focus();
 }
 
+function restoreWindowFromMaximization() {
+
+}
+
 function minimizeWindow() {
 
 }
 
-function restoreWindowToDesktop() {
+function restoreWindowFromMinimization() {
 
 }
 
