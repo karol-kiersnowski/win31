@@ -21,7 +21,6 @@ body {
 
 
 #start-screen {
-	display: none;
 	position: absolute;
 	z-index: 5;
 	padding: 20px;
@@ -71,7 +70,6 @@ body {
 	border: 4px solid #00a;
 	background-color: #00a;
 	text-align: center;
-	font-weight: bold;
 }
 
 .window,
@@ -84,7 +82,6 @@ body {
 	overflow: hidden;
 	border: 4px double #000;
 	background-color: #c3c7cb;
-	font-weight: bold;
 }
 
 	.title-bar {
@@ -105,10 +102,13 @@ body {
 		.title {
 			padding: 1px;
 			font-size: 14px;
+			font-weight: bold;
 		}
 
 		hr {
 			margin: 2px 0;
+			border: none;
+			border-top: 1px solid #000;
 		}
 
 		.control-menu-box {
@@ -143,63 +143,43 @@ body {
 				text-shadow: none;
 			}
 
-		.minimize-button {
+		.minimize-box,
+		.maximize-box {
 			position: absolute;
 			top: 0;
+			border-left: 1px solid #000;
+			background-color: #c3c7cb;
+			color: #000;
+			font-size: 11px;
+		}
+
+		.minimize-box {
 			right: 21px;
-			width: 20px;
-			height: 20px;
-			border: 1px outset;
-			background-color: #c3c7cb;
-			color: #000;
-			font-size: 11px;
-			vertical-align: bottom;
 		}
 
-		.maximize-button {
-			position: absolute;
-			top: 0;
+		.maximize-box {
 			right: 0;
-			width: 20px;
-			height: 20px;
-			border: 1px outset;
-			background-color: #c3c7cb;
-			color: #000;
-			font-size: 11px;
-			vertical-align: top;
 		}
 
-			.minimize-button i {
-				vertical-align: top;
+			.minimize-button,
+			.maximize-button {
+				width: 20px;
+				height: 20px;
+				border: 1px outset;
 			}
 
-			.maximize-button i {
-				vertical-align: bottom;
+			.minimize-button:active,
+			.maximize-button:active {
+				border: 2px inset;
 			}
 
-		.minimize-vertical-line {
-			position: absolute;
-			top: 0;
-			right: 41px;
-			border-left: 1px solid #000;
-			width: 1px;
-			height: 20px;
-		}
+				.minimize-button i {
+					vertical-align: top;
+				}
 
-		.maximize-vertical-line {
-			position: absolute;
-			top: 0;
-			right: 20px;
-			border-left: 1px solid #000;
-			width: 1px;
-			height: 20px;
-		}
-
-		.minimize-button:active,
-		.maximize-button:active {
-			border: 2px inset;
-			//transform: translate(1px, 1px);
-		}
+				.maximize-button i {
+					vertical-align: bottom;
+				}
 
 	.menu-bar {
 		border-bottom: 1px solid #000;
@@ -255,13 +235,11 @@ body {
 		//padding: 5px;
 		height: calc(100% - 42px);
 		overflow: auto;
-		font-weight: normal;
 	}
 
 	.window .window-content {
 		height: calc(100% - 22px);
 		overflow: auto;
-		font-weight: normal;
 	}
 
 		.window-content textarea {
@@ -380,7 +358,6 @@ body {
 	border: 4px solid #00a;
 	background-color: #00a;
 	text-align: center;
-	font-weight: bold;
 }
 
 	#window-exit-windows .title-bar {

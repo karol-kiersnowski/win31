@@ -166,7 +166,7 @@ function closeWindow(caller) {
 	else if (caller.className == "menu-command")
 		thisWindow = caller.parentElement.parentElement.parentElement.parentElement;
 	else if (caller.className == "minimize-button")
-		thisWindow = caller.parentElement.parentElement;
+		thisWindow = caller.parentElement.parentElement.parentElement;
 	else if (caller.tagName == "BUTTON")
 		thisWindow = caller.parentElement.parentElement;
 	thisWindow.style.display = "none";
@@ -181,18 +181,19 @@ function maximizeWindow(caller) {
 
 	if (caller.className == "menu-command")
 		thisWindow = caller.parentElement.parentElement.parentElement.parentElement;
-	else if (caller.className == "title" || caller.className == "maximize-button")
+	else if (caller.className == "title")
 		thisWindow = caller.parentElement.parentElement;
+	else if (caller.className == "maximize-button")
+		thisWindow = caller.parentElement.parentElement.parentElement;
 
 	for (var i=0; i<apps.length; i++)
 		if (thisWindow.id == apps[i].window.id) {
-			console.log("yeah");
 			thisApp = apps[i];
 		}
 
 	restoreCommand = thisWindow.children[0].children[0].children[1].children[0];
 	maximizeCommand = thisWindow.children[0].children[0].children[1].children[4];
-	maximizeButton = thisWindow.children[0].children[5];
+	maximizeButton = thisWindow.children[0].children[3].children[0];
 
 	// MAXIMIZE WINDOW
 	if (restoreCommand.className == "menu-command disabled") {
@@ -200,7 +201,6 @@ function maximizeWindow(caller) {
 		thisApp.y = thisWindow.offsetTop;
 		thisApp.width = thisWindow.offsetWidth;
 		thisApp.height = thisWindow.offsetHeight;
-		console.log(thisApp.width);
 		thisWindow.style.top = "0px";
 		thisWindow.style.left = "0px";
 		thisWindow.style.width = "100%";
