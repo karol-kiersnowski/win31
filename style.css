@@ -21,6 +21,7 @@ body {
 
 
 #start-screen {
+	display: none;
 	position: absolute;
 	z-index: 5;
 	padding: 20px;
@@ -247,6 +248,7 @@ body {
 		background-color: #fff;
 		overflow: auto;
 		scrollbar-width: thin;
+		scrollbar-color: #c3c7cb #fff;
 	}
 
 	.window-with-menu-bar .window-content {
